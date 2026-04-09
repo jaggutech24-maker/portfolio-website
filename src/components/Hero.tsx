@@ -59,7 +59,7 @@ export default function Hero() {
             <div className="w-64 h-80 md:w-72 md:h-[420px] relative">
               <div className="absolute inset-0 bg-[#E8A020] rounded-sm translate-x-4 translate-y-4"></div>
               <img
-                src="/images/profile.jpg"
+                src="images/profile.jpg"
                 alt="Jayesh Kumar Prajapati"
                 className="relative z-10 w-full h-full object-cover rounded-sm"
               />

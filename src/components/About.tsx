@@ -57,7 +57,7 @@ export default function About() {
               {/* Profile image with green bg */}
               <div className="relative bg-[#2d5a27] p-4 rounded-sm w-fit ml-auto">
                 <img
-                  src="/images/about-profile.png"
+                  src="images/about-profile.png"
                   alt="Jayesh Kumar Prajapati"
                   className="w-56 h-64 object-cover object-top rounded-sm"
                 />
