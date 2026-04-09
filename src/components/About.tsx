@@ -1,3 +1,5 @@
+import aboutProfileImg from '../assets/images/about-profile.png'
+
 export default function About() {
   return (
     <section id="about" className="bg-[#f5f0e8] py-24 px-6 md:px-16 relative overflow-hidden">
@@ -57,7 +59,7 @@ export default function About() {
               {/* Profile image with green bg */}
               <div className="relative bg-[#2d5a27] p-4 rounded-sm w-fit ml-auto">
                 <img
-                  src="images/about-profile.png"
+                  src={aboutProfileImg}
                   alt="Jayesh Kumar Prajapati"
                   className="w-56 h-64 object-cover object-top rounded-sm"
                 />
