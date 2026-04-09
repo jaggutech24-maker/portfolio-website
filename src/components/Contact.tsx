@@ -46,7 +46,7 @@ export default function Contact() {
         <svg className="absolute top-[60%] right-[20%]" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
 
         {/* NEW ELEMENTS */}
-        <div className="absolute top-[5%] left-[20%] text-8xl font-mono font-bold opacity-40 rotate-[10deg]">{'@'}</div>
+        <div className="absolute top-[5%] left-[20%] text-8xl font-mono font-bold opacity-40 rotate-10">{'@'}</div>
         <svg className="absolute bottom-[10%] right-[5%] animate-[spin_25s_linear_infinite_reverse] text-[#E8A020]" width="90" height="90" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon><line x1="12" y1="22" x2="12" y2="12"></line><line x1="22" y1="8.5" x2="12" y2="12"></line><line x1="2" y1="8.5" x2="12" y2="12"></line></svg>
         <svg className="absolute top-[40%] left-[5%] opacity-60" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
         <div className="absolute bottom-[20%] right-[45%] text-4xl font-mono text-black font-bold">{'</>'}</div>
