@@ -1,229 +1,251 @@
 import { motion } from 'framer-motion'
 import aboutProfileImg from '../assets/images/about-profile.png'
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i = 0) => ({
+    opacity: 1, y: 0,
+    transition: { duration: 0.7, delay: i * 0.12, ease: [0.0, 0.0, 0.2, 1] as [number, number, number, number] },
+  }),
+}
+
+const titleContainer = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.07, delayChildren: 0.1 } },
+}
+const titleChar = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0, transition: { type: 'spring', damping: 14, stiffness: 120 } },
+} as const
+
 export default function About() {
-  const titleCharacters = "Hello, I'm Jayesh!".split("")
-
-  const container = {
-    hidden: { opacity: 0 },
-    visible: (i = 1) => ({
-      opacity: 1,
-      transition: { staggerChildren: 0.1, delayChildren: 0.04 * i },
-    }),
-  }
-
-  const child = {
-    visible: {
-      opacity: 1,
-      x: 0,
-      y: 0,
-      transition: {
-        type: "spring",
-        damping: 12,
-        stiffness: 100,
-      },
-    },
-    hidden: {
-      opacity: 0,
-      x: -20,
-      y: 10,
-      transition: {
-        type: "spring",
-        damping: 12,
-        stiffness: 100,
-      },
-    },
-  } as const
+  const titleChars = "Hello, I'm Jayesh!".split('')
 
   return (
-    <section id="about" className="bg-[#f5f0e8] py-24 px-6 md:px-16 relative overflow-hidden">
-      {/* Background Tech Overlay */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-[0.05] text-[#2d5a27]">
-        <svg className="absolute top-40 right-[15%] animate-[spin_15s_linear_infinite]" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon><line x1="12" y1="22" x2="12" y2="12"></line><line x1="22" y1="8.5" x2="12" y2="12"></line><line x1="2" y1="8.5" x2="12" y2="12"></line></svg>
-        <div className="absolute top-1/3 left-[5%] text-6xl font-mono font-bold rotate-12">{'<div/>'}</div>
-        <svg className="absolute bottom-[20%] left-[10%] animate-pulse" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
-        <div className="absolute bottom-[10%] right-[10%] text-8xl font-mono font-bold text-[#E8A020] -rotate-12">{'}'}</div>
+    <section id="about" className="bg-[#0B0B0B] py-28 px-6 md:px-16 relative overflow-hidden">
 
-        {/* NEW ELEMENTS */}
-        <div className="absolute top-[10%] left-[40%] text-5xl font-mono opacity-60">{'/*'}</div>
-        <svg className="absolute bottom-[40%] right-[5%] animate-[spin_10s_linear_infinite]" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><circle cx="12" cy="12" r="3" /><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" /></svg>
-        <svg className="absolute top-[60%] left-[50%] opacity-50" width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><path d="M2 12h4l2-9 5 18 3-9h6" /></svg>
-        <div className="absolute top-[5%] right-[40%] text-[#E8A020] text-3xl font-mono rotate-12">{'()'}</div>
-      </div>
+      {/* Subtle grid */}
+      <div className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `linear-gradient(rgba(212,175,55,0.03) 1px, transparent 1px),
+                            linear-gradient(90deg, rgba(212,175,55,0.03) 1px, transparent 1px)`,
+          backgroundSize: '60px 60px'
+        }}
+      />
 
-      {/* Second Navbar strip */}
-      <div className="max-w-6xl mx-auto">
+      {/* Section label */}
+      <div className="max-w-6xl mx-auto relative z-10">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.3 }}
+          className="flex items-center gap-3 mb-16"
+        >
+          <div className="w-10 h-px bg-[#D4AF37]" />
+          <span className="text-[#D4AF37] text-xs uppercase tracking-[0.3em] font-inter">About Me</span>
+        </motion.div>
 
         {/* Hello section */}
-        <div className="flex flex-col md:flex-row gap-8 items-start">
+        <div className="flex flex-col md:flex-row gap-10 items-start mb-20">
 
-          {/* Left: Hello text */}
-          <div className="md:w-1/2 bg-white rounded-2xl shadow-md border border-[#e8e0d0] p-8">
+          {/* Left: Text */}
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.2 }}
+            className="md:w-1/2 bg-[#111111] rounded-2xl border border-[#D4AF37]/15 p-8 hover:border-[#D4AF37]/40 transition-all duration-500 hover:shadow-[0_0_30px_rgba(212,175,55,0.08)]"
+          >
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-1 h-10 bg-[#E8A020] rounded-full"></div>
-              <motion.h2 
-                style={{ overflow: "hidden", display: "flex", flexWrap: "wrap" }}
-                variants={container}
+              <div className="w-1 h-10 rounded-full" style={{ background: 'linear-gradient(180deg,#D4AF37,#FACC15)' }} />
+              <motion.h2
+                style={{ overflow: 'hidden', display: 'flex', flexWrap: 'wrap' }}
+                variants={titleContainer}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: false, amount: 0.3 }}
-                className="font-playfair font-black text-5xl md:text-6xl text-[#1a1a1a] leading-tight"
+                viewport={{ once: false, amount: 0.5 }}
+                className="font-playfair font-black text-4xl md:text-5xl text-[#F5F5F5] leading-tight"
               >
-                {titleCharacters.map((char, index) => (
-                  <motion.span variants={child} key={index}>
-                    {char === " " ? "\u00A0" : char}
+                {titleChars.map((char, i) => (
+                  <motion.span variants={titleChar} key={i}>
+                    {char === ' ' ? '\u00A0' : char}
                   </motion.span>
                 ))}
               </motion.h2>
             </div>
-            <p className="text-[#555] text-base leading-relaxed mb-8 font-inter">
+            <p className="text-[#A1A1AA] text-base leading-relaxed mb-8 font-inter">
               I'm a recent B.Sc. Computer Science graduate with a strong foundation in core computer science concepts.
               I have hands-on experience building clean, responsive, and user-focused applications using modern technologies.
-              I bring a sharp eye for design, a focus on performance optimization, and a commitment to writing scalable and
-              maintainable code. Outside of technology, my discipline in weightlifting reflects the consistency, focus, and
-              dedication I apply to my work.
+              I bring a sharp eye for design, a focus on performance optimization, and a commitment to writing scalable and maintainable code.
             </p>
             <a
               href="https://lnk.ink/jayeshprajapati"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border-2 border-[#E8A020] text-[#1a1a1a] px-6 py-3 rounded-full text-sm font-medium hover:bg-[#E8A020] transition-colors group"
+              className="inline-flex items-center gap-2 border border-[#D4AF37]/50 text-[#D4AF37] px-6 py-3 rounded-full text-sm font-medium hover:bg-[#D4AF37]/10 transition-all duration-300 hover:shadow-[0_0_16px_rgba(212,175,55,0.25)]"
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <circle cx="11" cy="11" r="8" />
-                <path d="M21 21l-4.35-4.35" />
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
               </svg>
               lnk.ink/jayeshprajapati
             </a>
-          </div>
+          </motion.div>
 
           {/* Right: Profile card */}
           <div className="md:w-1/2 relative">
-            <div className="relative">
-              {/* Profile image with green bg */}
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
-                viewport={{ once: false, amount: 0.3 }}
-                className="relative bg-[#2d5a27] p-4 rounded-sm w-fit ml-auto"
-              >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.85 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: false, amount: 0.3 }}
+              className="relative rounded-xl overflow-visible w-fit ml-auto"
+            >
+              <div className="relative p-4 rounded-xl"
+                style={{ background: 'linear-gradient(135deg,#D4AF37,#FACC15)', boxShadow: '0 0 40px rgba(212,175,55,0.3)' }}>
                 <img
                   src={aboutProfileImg}
                   alt="Jayesh Kumar Prajapati"
-                  className="w-56 h-64 object-cover object-top rounded-sm"
+                  className="w-52 h-64 object-cover object-top rounded-lg"
                 />
-                {/* Floating badges */}
-                <motion.div 
-                  initial={{ x: -20, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1 }}
-                  transition={{ delay: 0.6 }}
-                  viewport={{ once: false }}
-                  className="absolute -left-16 top-8 bg-[#E8A020] text-[#1a1a1a] px-4 py-2 rounded-full text-xs font-bold shadow-lg"
-                >
-                  B.Sc. CS Graduate
-                </motion.div>
-                <motion.div 
-                   initial={{ x: 20, opacity: 0 }}
-                   whileInView={{ x: 0, opacity: 1 }}
-                   transition={{ delay: 0.8 }}
-                   viewport={{ once: false }}
-                   className="absolute -right-6 top-1/2 bg-[#E8A020] text-[#1a1a1a] px-4 py-2 rounded-full text-xs font-bold shadow-lg"
-                >
-                  Frontend Dev
-                </motion.div>
-              </motion.div>
+                {/* Corner accents */}
+                <div className="absolute -top-1 -right-1 w-5 h-5 border-t-2 border-r-2 border-[#0B0B0B]" />
+                <div className="absolute -bottom-1 -left-1 w-5 h-5 border-b-2 border-l-2 border-[#0B0B0B]" />
+              </div>
 
-              {/* Contact card */}
-              <div className="bg-[#1a1a1a] text-white p-6 mt-4 rounded-sm">
-                <h3 className="font-playfair font-bold text-xl mb-4">Contact</h3>
-                <div className="flex flex-col gap-3">
-                  <div className="flex items-center gap-3 text-sm">
-                    <span className="text-[#E8A020]">📍</span>
-                    <span>Mira Road (E), Palghar, Maharashtra</span>
+              {/* Floating badges */}
+              <motion.div
+                initial={{ x: -20, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ delay: 0.6 }}
+                viewport={{ once: false }}
+                className="absolute -left-20 top-8 text-[#0B0B0B] px-4 py-2 rounded-full text-xs font-bold shadow-xl"
+                style={{ background: 'linear-gradient(135deg,#D4AF37,#FACC15)', boxShadow: '0 0 14px rgba(212,175,55,0.5)' }}
+              >
+                B.Sc. CS Graduate
+              </motion.div>
+              <motion.div
+                initial={{ x: 20, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ delay: 0.8 }}
+                viewport={{ once: false }}
+                className="absolute -right-8 top-1/2 text-[#0B0B0B] px-4 py-2 rounded-full text-xs font-bold shadow-xl"
+                style={{ background: 'linear-gradient(135deg,#D4AF37,#FACC15)', boxShadow: '0 0 14px rgba(212,175,55,0.5)' }}
+              >
+                Frontend Dev
+              </motion.div>
+            </motion.div>
+
+            {/* Contact card */}
+            <div className="bg-[#111111] text-[#F5F5F5] p-6 mt-5 rounded-xl border border-[#D4AF37]/15">
+              <h3 className="font-playfair font-bold text-lg mb-4 text-[#D4AF37]">Contact</h3>
+              <div className="flex flex-col gap-3">
+                {[
+                  { icon: '📍', text: 'Mira Road (E), Palghar, Maharashtra' },
+                  { icon: '✉️', text: 'jaggutech24@gmail.com', href: 'mailto:jaggutech24@gmail.com' },
+                  { icon: '📞', text: '+91 7822890807', href: 'tel:+917822890807' },
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-3 text-sm">
+                    <span>{item.icon}</span>
+                    {item.href ? (
+                      <a href={item.href} className="text-[#A1A1AA] hover:text-[#D4AF37] transition-colors">{item.text}</a>
+                    ) : (
+                      <span className="text-[#A1A1AA]">{item.text}</span>
+                    )}
                   </div>
-                  <div className="flex items-center gap-3 text-sm">
-                    <span className="text-[#E8A020]">✉️</span>
-                    <a href="mailto:jaggutech24@gmail.com" className="hover:text-[#E8A020] transition-colors">
-                      jaggutech24@gmail.com
-                    </a>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm">
-                    <span className="text-[#E8A020]">📞</span>
-                    <a href="tel:+917822890807" className="hover:text-[#E8A020] transition-colors">
-                      +91 7822890807
-                    </a>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
 
         {/* Strengths */}
-        <div className="mt-20 bg-[#2d5a27] rounded-2xl shadow-lg p-8 md:p-10">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.15 }}
+          className="mb-16 rounded-2xl border border-[#D4AF37]/15 p-8 md:p-10"
+          style={{ background: 'linear-gradient(135deg,#111111 0%,#0f0f0f 100%)' }}
+        >
           <div className="flex items-center gap-3 mb-8">
-            <div className="w-1 h-8 bg-[#E8A020] rounded-full"></div>
-            <h3 className="font-playfair font-black text-3xl text-white">Strengths</h3>
+            <div className="w-1 h-8 rounded-full" style={{ background: 'linear-gradient(180deg,#D4AF37,#FACC15)' }} />
+            <h3 className="font-playfair font-black text-3xl text-[#F5F5F5]">Strengths</h3>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
             {[
-              { title: 'Project Management & Problem Solving', desc: 'Possess strong project management and problem-solving skills', icon: '🎯' },
+              { title: 'Project Management & Problem Solving', desc: 'Strong project management and problem-solving skills', icon: '🎯' },
               { title: 'Teamwork and Leadership', desc: 'Capable of effective teamwork and leadership', icon: '🤝' },
               { title: 'Time Management & Critical Thinking', desc: 'Exhibit time management and critical thinking abilities', icon: '⏱️' },
               { title: 'Effective Communication', desc: 'Strong communication skills with a focus on professionalism', icon: '💬' },
             ].map((s, i) => (
-              <motion.div 
-                key={i} 
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
+              <motion.div
+                key={i}
+                custom={i}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
                 viewport={{ once: false, amount: 0.2 }}
-                className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:bg-white/20 transition-all duration-300"
+                className="bg-[#0B0B0B] border border-[#D4AF37]/10 rounded-xl p-5 hover:border-[#D4AF37]/40 hover:shadow-[0_0_20px_rgba(212,175,55,0.1)] transition-all duration-300 group"
               >
-                <span className="text-2xl mb-3 block">{s.icon}</span>
-                <h4 className="font-semibold text-white text-sm mb-2">{s.title}</h4>
-                <p className="text-white/70 text-xs leading-relaxed">{s.desc}</p>
+                <span className="text-2xl mb-3 block group-hover:scale-110 transition-transform duration-300">{s.icon}</span>
+                <h4 className="font-semibold text-[#F5F5F5] text-sm mb-2">{s.title}</h4>
+                <p className="text-[#A1A1AA] text-xs leading-relaxed">{s.desc}</p>
               </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Languages & Hobbies */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
-
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Languages */}
-          <div className="bg-white rounded-2xl shadow-md border border-[#e8e0d0] p-8">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.2 }}
+            className="bg-[#111111] rounded-2xl border border-[#D4AF37]/15 p-8 hover:border-[#D4AF37]/30 transition-all duration-500"
+          >
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-1 h-8 bg-[#E8A020] rounded-full"></div>
-              <h3 className="font-playfair font-black text-3xl text-[#1a1a1a]">Languages</h3>
+              <div className="w-1 h-8 rounded-full" style={{ background: 'linear-gradient(180deg,#D4AF37,#FACC15)' }} />
+              <h3 className="font-playfair font-black text-2xl text-[#F5F5F5]">Languages</h3>
             </div>
             <div className="flex flex-col gap-6">
               {[
                 { lang: 'English', level: 'Native', dots: 5 },
-                { lang: 'Hindi', level: 'Native', dots: 5 },
+                { lang: 'Hindi',   level: 'Native', dots: 5 },
                 { lang: 'Punjabi', level: 'Intermediate', dots: 3 },
-              ].map((l) => (
+              ].map(l => (
                 <div key={l.lang} className="flex items-center justify-between">
                   <div>
-                    <p className="font-semibold text-[#1a1a1a] text-sm">{l.lang}</p>
-                    <p className="text-[#888] text-xs">{l.level}</p>
+                    <p className="font-semibold text-[#F5F5F5] text-sm">{l.lang}</p>
+                    <p className="text-[#A1A1AA] text-xs">{l.level}</p>
                   </div>
                   <div className="flex gap-1.5">
                     {[1, 2, 3, 4, 5].map(d => (
-                      <div key={d} className={`w-4 h-4 rounded-full border-2 ${d <= l.dots ? 'bg-[#E8A020] border-[#E8A020]' : 'bg-transparent border-[#ddd]'}`}></div>
+                      <div key={d}
+                        className={`w-3.5 h-3.5 rounded-full border-2 ${d <= l.dots ? 'border-[#D4AF37]' : 'border-[#333]'}`}
+                        style={d <= l.dots ? { background: 'linear-gradient(135deg,#D4AF37,#FACC15)' } : {}}
+                      />
                     ))}
                   </div>
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Hobbies */}
-          <div className="bg-[#1a1a1a] rounded-2xl shadow-md p-8">
+          <motion.div
+            variants={fadeUp}
+            custom={1}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.2 }}
+            className="bg-[#111111] rounded-2xl border border-[#D4AF37]/15 p-8 hover:border-[#D4AF37]/30 transition-all duration-500"
+          >
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-1 h-8 bg-[#E8A020] rounded-full"></div>
-              <h3 className="font-playfair font-black text-3xl text-white">Hobbies & Interests</h3>
+              <div className="w-1 h-8 rounded-full" style={{ background: 'linear-gradient(180deg,#D4AF37,#FACC15)' }} />
+              <h3 className="font-playfair font-black text-2xl text-[#F5F5F5]">Hobbies & Interests</h3>
             </div>
             <div className="grid grid-cols-3 gap-4">
               {[
@@ -234,13 +256,15 @@ export default function About() {
                 { icon: '🌊', label: 'Beach Cleanup' },
                 { icon: '🎮', label: 'Gaming' },
               ].map(h => (
-                <div key={h.label} className="flex flex-col items-center gap-2 bg-white/10 border border-white/20 p-4 rounded-xl hover:bg-white/20 transition-all duration-300">
-                  <span className="text-2xl">{h.icon}</span>
-                  <span className="text-white/80 text-xs text-center font-inter">{h.label}</span>
+                <div key={h.label}
+                  className="flex flex-col items-center gap-2 bg-[#0B0B0B] border border-[#D4AF37]/10 p-4 rounded-xl hover:border-[#D4AF37]/40 hover:shadow-[0_0_14px_rgba(212,175,55,0.15)] transition-all duration-300 group cursor-default"
+                >
+                  <span className="text-2xl group-hover:scale-125 transition-transform duration-300">{h.icon}</span>
+                  <span className="text-[#A1A1AA] text-xs text-center font-inter">{h.label}</span>
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

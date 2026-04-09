@@ -8,15 +8,27 @@ export default function Hero() {
   }
 
   return (
-    <section id="home" className="min-h-screen bg-[#2d5a27] relative overflow-hidden flex flex-col">
-      {/* Background Tech Overlay */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-[0.08]">
-        {/* Code Brackets */}
-        <div className="absolute top-20 left-[10%] text-white text-6xl font-mono font-bold animate-pulse rotate-12">{'{ }'}</div>
-        <div className="absolute bottom-40 right-[15%] text-[#E8A020] text-7xl font-mono font-bold -rotate-12">{'</>'}</div>
-        
-        {/* React Logo */}
-        <svg className="absolute top-1/3 right-[10%] text-white animate-[spin_10s_linear_infinite]" width="80" height="80" viewBox="-11.5 -10.23174 23 20.46348" xmlns="http://www.w3.org/2000/svg">
+    <section id="home" className="min-h-screen bg-[#0B0B0B] relative overflow-hidden flex flex-col">
+
+      {/* Grid pattern background */}
+      <div className="absolute inset-0 z-0 pointer-events-none"
+        style={{
+          backgroundImage: `linear-gradient(rgba(212,175,55,0.04) 1px, transparent 1px),
+                            linear-gradient(90deg, rgba(212,175,55,0.04) 1px, transparent 1px)`,
+          backgroundSize: '60px 60px'
+        }}
+      />
+
+      {/* Radial gold glow centre */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none"
+        style={{ background: 'radial-gradient(circle, rgba(212,175,55,0.07) 0%, transparent 70%)' }}
+      />
+
+      {/* Floating background symbols */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-[0.07]">
+        <div className="absolute top-20 left-[10%] text-[#D4AF37] text-6xl font-mono font-bold animate-pulse rotate-12">{'{ }'}</div>
+        <div className="absolute bottom-40 right-[15%] text-[#D4AF37] text-7xl font-mono font-bold -rotate-12">{'</>'}</div>
+        <svg className="absolute top-1/3 right-[10%] text-[#D4AF37] animate-[spin_10s_linear_infinite]" width="80" height="80" viewBox="-11.5 -10.23174 23 20.46348">
           <circle cx="0" cy="0" r="2.05" fill="currentColor"/>
           <g stroke="currentColor" strokeWidth="1" fill="none">
             <ellipse rx="11" ry="4.2"/>
@@ -24,69 +36,51 @@ export default function Hero() {
             <ellipse rx="11" ry="4.2" transform="rotate(120)"/>
           </g>
         </svg>
-
-        {/* Binary / Data */}
-        <div className="absolute top-1/2 left-[5%] text-white/50 text-xl font-mono leading-tight whitespace-pre -rotate-90 origin-left">
-          10110<br/>01001
-        </div>
-
-        {/* Gear / Process */}
-        <svg className="absolute bottom-20 left-[20%] text-white animate-[spin_15s_linear_infinite]" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="12" cy="12" r="3"></circle>
-          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-        </svg>
-
-        {/* JS Box */}
-        <div className="absolute top-[15%] right-[30%] border-2 border-[#E8A020] text-[#E8A020] font-bold text-2xl p-2 rounded-md rotate-12">
-          JS
-        </div>
-
-        {/* Database Node */}
-        <svg className="absolute bottom-[40%] left-[30%] text-white/80" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-          <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
-          <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
-        </svg>
-        
-        {/* NEW ELEMENTS */}
-        <div className="absolute top-[10%] left-[50%] text-white/80 text-4xl font-mono animate-pulse">{'$_'}</div>
-        <svg className="absolute bottom-[25%] right-[25%] text-[#E8A020]/80" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M6 3v12"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>
-        <svg className="absolute top-[60%] right-[30%] text-white/40" width="55" height="55" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        <div className="absolute top-[15%] right-[30%] border-2 border-[#D4AF37] text-[#D4AF37] font-bold text-2xl p-2 rounded-md rotate-12">JS</div>
+        <div className="absolute top-[10%] left-[50%] text-[#D4AF37] text-4xl font-mono animate-pulse">{'$_'}</div>
+        <div className="absolute bottom-[30%] left-[8%] text-[#D4AF37] text-5xl font-mono font-bold">{'<>'}</div>
       </div>
 
       {/* Main hero content */}
-      <div className="flex-1 flex flex-col md:flex-row items-stretch pt-16 relative">
+      <div className="flex-1 flex flex-col md:flex-row items-stretch pt-20 relative z-10">
+
         {/* Left: Photo */}
         <div className="relative md:w-2/5 flex items-end justify-center md:justify-start">
-          <motion.div 
-            initial={{ opacity: 0, x: -50 }}
+          <motion.div
+            initial={{ opacity: 0, x: -60 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative z-10 ml-0 md:ml-12 mt-12 md:mt-0"
+            transition={{ duration: 0.9, ease: 'easeOut' }}
+            className="relative z-10 ml-0 md:ml-14 mt-16 md:mt-0"
           >
             <div className="w-64 h-80 md:w-72 md:h-[420px] relative">
-              <motion.div 
+              {/* Gold offset shadow */}
+              <motion.div
                 initial={{ x: 20, y: 20 }}
                 animate={{ x: 16, y: 16 }}
                 transition={{ duration: 0.5, delay: 0.8 }}
-                className="absolute inset-0 bg-[#E8A020] rounded-sm"
-              ></motion.div>
+                className="absolute inset-0 rounded-sm"
+                style={{ background: 'linear-gradient(135deg,#D4AF37,#FACC15)', boxShadow: '0 0 40px rgba(212,175,55,0.35)' }}
+              />
               <motion.img
                 whileHover={{ scale: 1.02 }}
                 src={profileImg}
                 alt="Jayesh Kumar Prajapati"
-                className="relative z-10 w-full h-full object-cover rounded-sm shadow-2xl"
+                className="relative z-10 w-full h-full object-cover rounded-sm"
+                style={{ boxShadow: '0 20px 60px rgba(0,0,0,0.7)' }}
               />
+              {/* Gold corner accent */}
+              <div className="absolute -top-2 -right-2 w-6 h-6 border-t-2 border-r-2 border-[#D4AF37] z-20" />
+              <div className="absolute -bottom-2 -left-2 w-6 h-6 border-b-2 border-l-2 border-[#D4AF37] z-20" />
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1, ease: "easeOut" }}
-            className="absolute bottom-0 left-0 md:left-12 p-6 max-w-xs"
+            transition={{ duration: 0.8, delay: 1, ease: 'easeOut' }}
+            className="absolute bottom-0 left-0 md:left-14 p-6 max-w-xs"
           >
-            <p className="text-white/70 text-xs leading-relaxed">
+            <p className="text-[#A1A1AA] text-xs leading-relaxed font-inter">
               B.Sc. CS Graduate · Frontend Developer<br />
               Built responsive web apps at OceanOwe Foundation,<br />
               boosting engagement by 15%. React · JavaScript · SQL.
@@ -95,56 +89,77 @@ export default function Hero() {
         </div>
 
         {/* Right: Title */}
-        <div className="md:w-3/5 flex flex-col justify-center items-start px-8 md:px-12 py-12 relative">
-          {/* Decorative stars */}
-          <div className="absolute top-16 right-8 text-[#E8A020]">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
-              <path d="M16 0L19 12L32 16L19 20L16 32L13 20L0 16L13 12L16 0Z"/>
-            </svg>
-          </div>
-          <div className="absolute top-32 right-20 text-[#E8A020]">
-            <svg width="18" height="18" viewBox="0 0 32 32" fill="currentColor">
-              <path d="M16 0L19 12L32 16L19 20L16 32L13 20L0 16L13 12L16 0Z"/>
-            </svg>
-          </div>
-          <div className="absolute top-12 left-4 text-[#E8A020]">
-            <svg width="22" height="22" viewBox="0 0 32 32" fill="currentColor">
-              <path d="M16 0L19 12L32 16L19 20L16 32L13 20L0 16L13 12L16 0Z"/>
-            </svg>
-          </div>
+        <div className="md:w-3/5 flex flex-col justify-center items-start px-8 md:px-14 py-12 relative">
 
-          {/* Stacked PORTFOLIO text */}
+          {/* Gold star decorations */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.5 }}
+            className="absolute top-16 right-8 text-[#D4AF37]"
+            style={{ filter: 'drop-shadow(0 0 8px rgba(212,175,55,0.8))' }}
+          >
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="currentColor">
+              <path d="M16 0L19 12L32 16L19 20L16 32L13 20L0 16L13 12L16 0Z"/>
+            </svg>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.7 }}
+            className="absolute top-28 right-20 text-[#D4AF37]/60"
+          >
+            <svg width="14" height="14" viewBox="0 0 32 32" fill="currentColor">
+              <path d="M16 0L19 12L32 16L19 20L16 32L13 20L0 16L13 12L16 0Z"/>
+            </svg>
+          </motion.div>
+
+          {/* Gold label */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex items-center gap-2 mb-6"
+          >
+            <div className="w-8 h-px bg-[#D4AF37]" />
+            <span className="text-[#D4AF37] text-xs uppercase tracking-[0.3em] font-inter">Frontend Developer</span>
+          </motion.div>
+
+          {/* Stacked title */}
           <div className="relative mb-8">
-            <motion.h1 
-              initial={{ opacity: 0, y: 30 }}
+            <motion.h1
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-white font-playfair font-black text-6xl md:text-8xl leading-none tracking-tight"
+              transition={{ duration: 0.9, ease: 'easeOut' }}
+              className="text-[#F5F5F5] font-playfair font-black text-6xl md:text-8xl leading-none tracking-tight"
             >
               PORTFOLIO
             </motion.h1>
             <div className="mt-1">
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                className="font-playfair font-black text-5xl md:text-7xl leading-none tracking-tight text-transparent" style={{WebkitTextStroke: '2px rgba(232,160,32,0.5)'}}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="font-playfair font-black text-5xl md:text-7xl leading-none tracking-tight text-transparent"
+                style={{ WebkitTextStroke: '2px rgba(212,175,55,0.5)' }}
               >
                 DEVELOPER
               </motion.p>
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-                className="font-playfair font-black text-4xl md:text-6xl leading-none tracking-tight text-transparent" style={{WebkitTextStroke: '2px rgba(232,160,32,0.35)'}}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="font-playfair font-black text-4xl md:text-6xl leading-none tracking-tight text-transparent"
+                style={{ WebkitTextStroke: '2px rgba(212,175,55,0.3)' }}
               >
                 DESIGNER
               </motion.p>
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-                className="font-playfair font-black text-3xl md:text-5xl leading-none tracking-tight text-transparent" style={{WebkitTextStroke: '2px rgba(232,160,32,0.2)'}}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="font-playfair font-black text-3xl md:text-5xl leading-none tracking-tight text-transparent"
+                style={{ WebkitTextStroke: '2px rgba(212,175,55,0.15)' }}
               >
                 CODER
               </motion.p>
@@ -152,46 +167,50 @@ export default function Hero() {
           </div>
 
           {/* Social links */}
-          <div className="flex items-center gap-4 mb-8">
-            {/* LinkedIn */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="flex items-center gap-4 mb-8"
+          >
             <a
               href="https://lnk.ink/jayeshprajapati"
               target="_blank"
               rel="noopener noreferrer"
               title="LinkedIn"
-              className="group flex items-center justify-center w-12 h-12 rounded-full border-2 border-white/30 bg-white/5 hover:bg-[#0077B5] hover:border-[#0077B5] transition-all duration-300 hover:scale-110 hover:shadow-[0_0_20px_rgba(0,119,181,0.5)]"
+              className="group flex items-center justify-center w-12 h-12 rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/5 hover:bg-[#D4AF37] hover:border-[#D4AF37] transition-all duration-300 hover:scale-110 hover:shadow-[0_0_20px_rgba(212,175,55,0.5)]"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="white">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#F5F5F5" className="group-hover:fill-[#0B0B0B] transition-colors">
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
               </svg>
             </a>
-
-            {/* Email */}
             <a
               href="mailto:jaggutech24@gmail.com"
-              title="jaggutech24@gmail.com"
-              className="group flex items-center justify-center w-12 h-12 rounded-full border-2 border-white/30 bg-white/5 hover:bg-[#E8A020] hover:border-[#E8A020] transition-all duration-300 hover:scale-110 hover:shadow-[0_0_20px_rgba(232,160,32,0.5)]"
+              title="Email"
+              className="group flex items-center justify-center w-12 h-12 rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/5 hover:bg-[#D4AF37] hover:border-[#D4AF37] transition-all duration-300 hover:scale-110 hover:shadow-[0_0_20px_rgba(212,175,55,0.5)]"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="white">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#F5F5F5" className="group-hover:fill-[#0B0B0B] transition-colors">
                 <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
               </svg>
             </a>
-
-            {/* Location */}
-            <span className="text-white/70 text-sm font-inter flex items-center gap-1">
-              📍 Mira Road, Maharashtra
+            <span className="text-[#A1A1AA] text-sm font-inter flex items-center gap-1.5">
+              <span className="text-[#D4AF37]">📍</span> Mira Road, Maharashtra
             </span>
-          </div>
+          </motion.div>
         </div>
       </div>
 
-      {/* Bottom black bar with scroll button */}
-      <div className="bg-[#1a1a1a] py-6 flex justify-center items-center relative">
+      {/* Bottom CTA bar */}
+      <div className="bg-[#111111] border-t border-[#D4AF37]/10 py-6 flex justify-center items-center">
         <button
           onClick={() => scrollTo('about')}
-          className="bg-[#E8A020] text-[#1a1a1a] font-semibold text-sm px-6 py-3 rounded-full hover:bg-[#d4911a] transition-all hover:scale-105 shadow-lg"
+          className="group flex items-center gap-2 text-[#0B0B0B] font-semibold text-sm px-7 py-3 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_24px_rgba(212,175,55,0.5)]"
+          style={{ background: 'linear-gradient(135deg,#D4AF37,#FACC15)' }}
         >
-          Scroll down ↓
+          Discover More
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="group-hover:translate-y-1 transition-transform">
+            <path d="M12 5v14M5 12l7 7 7-7"/>
+          </svg>
         </button>
       </div>
     </section>

@@ -33,7 +33,7 @@ function App() {
   }, [])
 
   return (
-    <div className="bg-[#f5f0e8] min-h-screen font-inter">
+    <div className="bg-[#0B0B0B] min-h-screen font-inter">
       <Navbar activeSection={activeSection} />
       <Hero />
       <About />
