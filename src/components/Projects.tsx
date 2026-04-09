@@ -36,7 +36,7 @@ export default function Projects() {
       {/* Background Tech Overlay */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-10">
         <svg className="absolute top-[20%] left-[10%] text-white animate-pulse" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
-        <div className="absolute top-[40%] right-[10%] text-[#E8A020] text-7xl font-mono font-bold rotate-[15deg]">{'[]'}</div>
+        <div className="absolute top-[40%] right-[10%] text-[#E8A020] text-7xl font-mono font-bold rotate-15">{'[]'}</div>
         <svg className="absolute bottom-[20%] left-[20%] text-white/80 animate-[spin_10s_linear_infinite_reverse]" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
         
         {/* NEW ELEMENTS */}
