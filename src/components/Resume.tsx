@@ -1,3 +1,41 @@
+import { motion } from 'framer-motion'
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, delay: i * 0.15, ease: [0.0, 0.0, 0.2, 1] as [number, number, number, number] },
+  }),
+}
+
+const fadeLeft = {
+  hidden: { opacity: 0, x: -40 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.6, delay: i * 0.15, ease: [0.0, 0.0, 0.2, 1] as [number, number, number, number] },
+  }),
+}
+
+const fadeRight = {
+  hidden: { opacity: 0, x: 40 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.6, delay: i * 0.15, ease: [0.0, 0.0, 0.2, 1] as [number, number, number, number] },
+  }),
+}
+
+const scaleIn = {
+  hidden: { opacity: 0, scale: 0.85 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.5, delay: i * 0.1, ease: [0.0, 0.0, 0.2, 1] as [number, number, number, number] },
+  }),
+}
+
 export default function Resume() {
   return (
     <section id="resume" className="bg-[#f5f0e8] py-24 px-6 md:px-16 relative overflow-hidden">
@@ -6,9 +44,7 @@ export default function Resume() {
         <div className="absolute top-[10%] left-[10%] text-5xl font-mono font-bold rotate-[-30deg]">{'// Code'}</div>
         <svg className="absolute bottom-[30%] left-[8%] animate-[spin_20s_linear_infinite]" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path><path d="M2 12h20"></path></svg>
         <div className="absolute top-[40%] right-[30%] text-6xl font-bold font-mono text-[#E8A020] rotate-45">{'&&'}</div>
-        
-        {/* NEW ELEMENTS */}
-        <div className="absolute top-[70%] left-[45%] text-7xl font-mono opacity-50 rotate-[20deg]">{';'}</div>
+        <div className="absolute top-[70%] left-[45%] text-7xl font-mono opacity-50 rotate-20">{';'}</div>
         <svg className="absolute top-[20%] right-[15%] animate-pulse text-[#E8A020]" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
         <svg className="absolute bottom-[10%] right-[10%] opacity-60 animate-[spin_12s_linear_infinite_reverse]" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
         <div className="absolute top-[5%] left-[50%] text-3xl font-mono text-[#2d5a27]">{'{{}}'}</div>
@@ -28,7 +64,13 @@ export default function Resume() {
           {/* Left Column */}
           <div>
             {/* Education */}
-            <div className="mb-12 bg-white rounded-2xl shadow-md border border-[#e8e0d0] p-8">
+            <motion.div
+              variants={fadeLeft}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.15 }}
+              className="mb-12 bg-white rounded-2xl shadow-md border border-[#e8e0d0] p-8"
+            >
               <div className="flex items-center gap-3 mb-8">
                 <div className="w-1 h-8 bg-[#E8A020] rounded-full"></div>
                 <h2 className="font-playfair font-black text-4xl text-[#1a1a1a]">Education</h2>
@@ -58,7 +100,15 @@ export default function Resume() {
                     icon: '🏫'
                   },
                 ].map((edu, i) => (
-                  <div key={i} className="mb-6 relative">
+                  <motion.div
+                    key={i}
+                    custom={i}
+                    variants={fadeUp}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: false, amount: 0.2 }}
+                    className="mb-6 relative"
+                  >
                     <div className="absolute -left-[18px] top-3 w-3 h-3 bg-[#E8A020] rotate-45"></div>
                     <div className="ml-4 bg-[#f9f6f0] border border-[#e8e0d0] rounded-xl p-4">
                       <div className="flex items-center gap-2 mb-1">
@@ -69,13 +119,19 @@ export default function Resume() {
                       <p className="text-[#555] text-xs">{edu.field}</p>
                       <p className="text-[#E8A020] font-semibold text-xs mt-1">{edu.detail}</p>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
             {/* Experience */}
-            <div className="bg-[#E8A020] p-8 rounded-sm">
+            <motion.div
+              variants={fadeLeft}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.15 }}
+              className="bg-[#E8A020] p-8 rounded-sm"
+            >
               <h2 className="font-playfair font-black text-4xl text-[#1a1a1a] mb-8">Experience</h2>
               <div className="relative pl-4">
                 <div className="absolute left-0 top-2 bottom-2 w-0.5 bg-[#1a1a1a]/20"></div>
@@ -93,7 +149,15 @@ export default function Resume() {
                     desc: 'Led beach cleanup drives promoting environmental awareness. Managed and created content for NGO\'s Instagram and Facebook pages. Assisted in organizing on-ground campaigns, handling logistics and team coordination.'
                   },
                 ].map((exp, i) => (
-                  <div key={i} className="mb-8 relative">
+                  <motion.div
+                    key={i}
+                    custom={i}
+                    variants={fadeUp}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: false, amount: 0.2 }}
+                    className="mb-8 relative"
+                  >
                     <div className="absolute -left-[18px] top-1.5 w-3 h-3 bg-[#1a1a1a] rotate-45"></div>
                     <div className="ml-4">
                       <span className="text-[#1a1a1a]/70 font-bold text-sm font-inter">{exp.year}</span>
@@ -101,25 +165,37 @@ export default function Resume() {
                       <p className="text-[#1a1a1a]/70 text-xs mb-2">{exp.company}</p>
                       <p className="text-[#1a1a1a]/80 text-sm leading-relaxed">{exp.desc}</p>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
 
               {/* Trait badges */}
-              <div className="flex flex-wrap gap-2 mt-4">
+              <motion.div
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: false, amount: 0.3 }}
+                className="flex flex-wrap gap-2 mt-4"
+              >
                 {['#Creativity', '#Communication', '#Detail-oriented', '#Adaptability'].map(tag => (
                   <span key={tag} className="bg-[#1a1a1a] text-white text-xs font-medium px-4 py-2 rounded-full">
                     {tag}
                   </span>
                 ))}
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
 
           {/* Right Column */}
           <div>
             {/* Technical Skills */}
-            <div className="mb-12 bg-[#2d5a27] rounded-2xl shadow-lg p-8">
+            <motion.div
+              variants={fadeRight}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.15 }}
+              className="mb-12 bg-[#2d5a27] rounded-2xl shadow-lg p-8"
+            >
               <div className="flex items-center gap-3 mb-8">
                 <div className="w-1 h-8 bg-[#E8A020] rounded-full"></div>
                 <h2 className="font-playfair font-black text-4xl text-white">Technical Skills</h2>
@@ -127,34 +203,68 @@ export default function Resume() {
 
               <div className="grid grid-cols-2 gap-6 mb-8">
                 {/* Coding skills */}
-                <div className="bg-white/10 border border-white/20 rounded-xl p-5">
+                <motion.div
+                  variants={scaleIn}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: false, amount: 0.2 }}
+                  className="bg-white/10 border border-white/20 rounded-xl p-5"
+                >
                   <h4 className="font-bold text-[#E8A020] text-sm mb-4 uppercase tracking-wide">Coding Skills</h4>
                   <div className="grid grid-cols-2 gap-x-4 gap-y-3">
-                    {['HTML5', 'CSS3', 'JavaScript', 'React.js', 'PHP', 'SQL', 'Tailwind', 'C++'].map(skill => (
-                      <div key={skill} className="flex items-center gap-2">
+                    {['HTML5', 'CSS3', 'JavaScript', 'React.js', 'PHP', 'SQL', 'Tailwind', 'C++'].map((skill, i) => (
+                      <motion.div
+                        key={skill}
+                        custom={i}
+                        variants={fadeUp}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: false, amount: 0.1 }}
+                        className="flex items-center gap-2"
+                      >
                         <div className="w-1.5 h-1.5 bg-[#E8A020] rounded-full"></div>
                         <span className="text-white/90 text-sm">{skill}</span>
-                      </div>
+                      </motion.div>
                     ))}
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Databases */}
-                <div className="bg-white/10 border border-white/20 rounded-xl p-5">
+                <motion.div
+                  variants={scaleIn}
+                  custom={1}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: false, amount: 0.2 }}
+                  className="bg-white/10 border border-white/20 rounded-xl p-5"
+                >
                   <h4 className="font-bold text-[#E8A020] text-sm mb-4 uppercase tracking-wide">Databases</h4>
                   <div className="flex flex-col gap-3">
-                    {['MongoDB', 'MySQL', 'LocalStorage'].map(db => (
-                      <div key={db} className="flex items-center gap-2">
+                    {['MongoDB', 'MySQL', 'LocalStorage'].map((db, i) => (
+                      <motion.div
+                        key={db}
+                        custom={i}
+                        variants={fadeUp}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: false, amount: 0.1 }}
+                        className="flex items-center gap-2"
+                      >
                         <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
                         <span className="text-white/90 text-sm">{db}</span>
-                      </div>
+                      </motion.div>
                     ))}
                   </div>
-                </div>
+                </motion.div>
               </div>
 
               {/* Other skill badges */}
-              <div>
+              <motion.div
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: false, amount: 0.2 }}
+              >
                 <h4 className="font-bold text-[#E8A020] text-sm mb-3 uppercase tracking-wide">Other Skills</h4>
                 <div className="flex flex-wrap gap-2">
                   {[
@@ -162,17 +272,31 @@ export default function Resume() {
                     'Performance Optimisation', 'Responsive Web Design', 'Requirements Gathering',
                     'Business Process Modeling', 'Stakeholder Management', 'Data Analysis',
                     'Data Visualization'
-                  ].map(skill => (
-                    <span key={skill} className="bg-white/10 border border-white/30 text-white/90 text-xs px-3 py-1.5 rounded-full hover:bg-white/20 transition-colors">
+                  ].map((skill, i) => (
+                    <motion.span
+                      key={skill}
+                      custom={i}
+                      variants={scaleIn}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: false, amount: 0.1 }}
+                      className="bg-white/10 border border-white/30 text-white/90 text-xs px-3 py-1.5 rounded-full hover:bg-white/20 transition-colors"
+                    >
                       {skill}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
             {/* Activities / Achievements */}
-            <div className="bg-[#1a1a1a] rounded-2xl shadow-lg p-8">
+            <motion.div
+              variants={fadeRight}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.15 }}
+              className="bg-[#1a1a1a] rounded-2xl shadow-lg p-8"
+            >
               <div className="flex items-center gap-3 mb-8">
                 <div className="w-1 h-8 bg-[#E8A020] rounded-full"></div>
                 <h2 className="font-playfair font-black text-4xl text-white">Achievements</h2>
@@ -195,7 +319,15 @@ export default function Resume() {
                     icon: '🏋️'
                   },
                 ].map((ach, i) => (
-                  <div key={i} className="mb-8 relative">
+                  <motion.div
+                    key={i}
+                    custom={i}
+                    variants={fadeUp}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: false, amount: 0.2 }}
+                    className="mb-8 relative"
+                  >
                     <div className="absolute -left-[18px] top-1.5 w-3 h-3 bg-[#E8A020] rotate-45"></div>
                     <div className="ml-4 bg-white/5 border border-white/10 rounded-xl p-4">
                       <div className="flex items-center gap-2 mb-1">
@@ -206,10 +338,10 @@ export default function Resume() {
                       <p className="text-white/50 text-xs mb-2">{ach.company}</p>
                       <p className="text-white/80 text-sm leading-relaxed">{ach.desc}</p>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

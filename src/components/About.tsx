@@ -66,7 +66,7 @@ export default function About() {
                 variants={container}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true }}
+                viewport={{ once: false, amount: 0.3 }}
                 className="font-playfair font-black text-5xl md:text-6xl text-[#1a1a1a] leading-tight"
               >
                 {titleCharacters.map((char, index) => (
@@ -105,7 +105,7 @@ export default function About() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
-                viewport={{ once: true }}
+                viewport={{ once: false, amount: 0.3 }}
                 className="relative bg-[#2d5a27] p-4 rounded-sm w-fit ml-auto"
               >
                 <img
@@ -118,6 +118,7 @@ export default function About() {
                   initial={{ x: -20, opacity: 0 }}
                   whileInView={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.6 }}
+                  viewport={{ once: false }}
                   className="absolute -left-16 top-8 bg-[#E8A020] text-[#1a1a1a] px-4 py-2 rounded-full text-xs font-bold shadow-lg"
                 >
                   B.Sc. CS Graduate
@@ -126,6 +127,7 @@ export default function About() {
                    initial={{ x: 20, opacity: 0 }}
                    whileInView={{ x: 0, opacity: 1 }}
                    transition={{ delay: 0.8 }}
+                   viewport={{ once: false }}
                    className="absolute -right-6 top-1/2 bg-[#E8A020] text-[#1a1a1a] px-4 py-2 rounded-full text-xs font-bold shadow-lg"
                 >
                   Frontend Dev
@@ -176,7 +178,7 @@ export default function About() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
-                viewport={{ once: true }}
+                viewport={{ once: false, amount: 0.2 }}
                 className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:bg-white/20 transition-all duration-300"
               >
                 <span className="text-2xl mb-3 block">{s.icon}</span>

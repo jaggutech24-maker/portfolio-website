@@ -71,6 +71,12 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Divider */}
+        <div className="border-t border-white/10 pt-6 text-center">
+          <p className="text-white/40 text-sm font-inter tracking-wide">
+            &copy; 2025 Jayesh Kumar Prajapati, All Rights Reserved
+          </p>
+        </div>
       </div>
     </footer>
   )
