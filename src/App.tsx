@@ -11,7 +11,7 @@ import LoadingScreen from './components/LoadingScreen'
 
 function App() {
   const [activeSection, setActiveSection] = useState('home')
-  const [loaded, setLoaded] = useState(false)
+  const [loadingPhase, setLoadingPhase] = useState<'loading' | 'fading' | 'done'>('loading')
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,14 +38,20 @@ function App() {
   return (
     <>
       {/* Loading screen — unmounts itself after onDone fires */}
-      {!loaded && <LoadingScreen onDone={() => setLoaded(true)} />}
+      {loadingPhase !== 'done' && (
+        <LoadingScreen 
+          onFadeStart={() => setLoadingPhase('fading')}
+          onDone={() => setLoadingPhase('done')} 
+        />
+      )}
 
-      {/* Main content fades in once loader is done */}
+      {/* Main content fades in simultaneously as loader fades out */}
       <div
         className="bg-[#0B0B0B] min-h-screen font-inter"
         style={{
-          opacity: loaded ? 1 : 0,
-          transition: 'opacity 0.6s ease',
+          opacity: loadingPhase !== 'loading' ? 1 : 0,
+          transition: 'opacity 0.7s ease',
+          pointerEvents: loadingPhase !== 'loading' ? 'auto' : 'none',
         }}
       >
         <CursorTrail />

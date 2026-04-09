@@ -20,9 +20,10 @@ interface CompletedLine {
 
 interface LoadingScreenProps {
   onDone: () => void
+  onFadeStart?: () => void
 }
 
-export default function LoadingScreen({ onDone }: LoadingScreenProps) {
+export default function LoadingScreen({ onDone, onFadeStart }: LoadingScreenProps) {
   const [completedLines, setCompletedLines] = useState<CompletedLine[]>([])
   const [currentLine, setCurrentLine] = useState(0)
   const [currentText, setCurrentText] = useState('')
@@ -35,6 +36,7 @@ export default function LoadingScreen({ onDone }: LoadingScreenProps) {
       // All lines done — hold briefly then fade
       rafId.current = setTimeout(() => {
         setFading(true)
+        if (onFadeStart) onFadeStart()
         setTimeout(onDone, 700) // matches CSS transition
       }, HOLD_MS)
       return
