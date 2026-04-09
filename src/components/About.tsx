@@ -141,7 +141,7 @@ export default function About() {
               <h3 className="font-playfair font-bold text-lg mb-4 text-[#D4AF37]">Contact</h3>
               <div className="flex flex-col gap-3">
                 {[
-                  { icon: '📍', text: 'Mira Road (E), Palghar, Maharashtra' },
+                  { icon: '📍', text: 'Mira Road (E), Thane, Maharashtra' },
                   { icon: '✉️', text: 'jaggutech24@gmail.com', href: 'mailto:jaggutech24@gmail.com' },
                   { icon: '📞', text: '+91 7822890807', href: 'tel:+917822890807' },
                 ].map((item, i) => (
