@@ -6,12 +6,15 @@
   --font-space: "Space Grotesk", sans-serif;
 }
 
-* {
+html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 body {
   font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .font-playfair {

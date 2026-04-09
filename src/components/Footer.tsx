@@ -38,6 +38,7 @@ export default function Footer() {
           <div className="flex gap-3">
             <a
               href="mailto:jaggutech24@gmail.com"
+              aria-label="Email Jayesh"
               className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-[#E8A020] hover:text-[#E8A020] transition-colors"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -49,6 +50,7 @@ export default function Footer() {
               href="https://lnk.ink/jayeshprajapati"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="LinkedIn"
               className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-[#E8A020] hover:text-[#E8A020] transition-colors"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -59,6 +61,7 @@ export default function Footer() {
             </a>
             <a
               href="tel:+917822890807"
+              aria-label="Call Jayesh"
               className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-[#E8A020] hover:text-[#E8A020] transition-colors"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
