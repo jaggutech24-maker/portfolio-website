@@ -6,6 +6,7 @@ import Resume from './components/Resume'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import CursorTrail from './components/CursorTrail'
 
 function App() {
   const [activeSection, setActiveSection] = useState('home')
@@ -34,6 +35,7 @@ function App() {
 
   return (
     <div className="bg-[#0B0B0B] min-h-screen font-inter">
+      <CursorTrail />
       <Navbar activeSection={activeSection} />
       <Hero />
       <About />
