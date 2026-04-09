@@ -33,7 +33,7 @@ export default function About() {
         stiffness: 100,
       },
     },
-  }
+  } as const
 
   return (
     <section id="about" className="bg-[#f5f0e8] py-24 px-6 md:px-16 relative overflow-hidden">

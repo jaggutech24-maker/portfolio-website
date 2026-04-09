@@ -78,7 +78,7 @@ export default function Contact() {
             {/* Contact links */}
             <div className="flex flex-col gap-4">
               {[
-                { type: 'Email', value: 'jaggutech24@gmail.com', href: 'mailto:jaggutech24@gmail.com', icon: <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /> },
+                { type: 'Email', value: 'jaggutech24@gmail.com', href: 'mailto:jaggutech24@gmail.com', icon: <><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></> },
                 { type: 'Phone', value: '+91 7822890807', href: 'tel:+917822890807', icon: <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l1.46-1.46a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z" /> },
                 { type: 'LinkedIn', value: 'lnk.ink/jayeshprajapati', href: 'https://lnk.ink/jayeshprajapati', icon: <><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></> }
               ].map((link, i) => (
