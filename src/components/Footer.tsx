@@ -11,7 +11,7 @@ export default function Footer() {
 
           {/* Logo */}
           <div className="flex items-center gap-3 cursor-pointer group" onClick={() => scrollTo('home')}>
-            <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 group-hover:shadow-[0_0_14px_rgba(212,175,55,0.5)] transition-all duration-300"
+            <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 group-hover:shadow-[0_0_14px_rgba(212,175,55,0.5)] transition-all duration-300"
               style={{ background: 'linear-gradient(135deg,#D4AF37,#FACC15)' }}>
               <svg width="13" height="13" viewBox="0 0 20 20" fill="none">
                 <path d="M10 0L12.5 7.5H20L14 12L16.5 20L10 15.5L3.5 20L6 12L0 7.5H7.5L10 0Z" fill="#0B0B0B"/>

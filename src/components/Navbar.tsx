@@ -56,7 +56,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
           <button
             key={item.id}
             onClick={() => scrollTo(item.id)}
-            className={`text-sm font-medium tracking-wide transition-all duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:h-[1px] after:bg-[#D4AF37] after:transition-all after:duration-300 ${
+            className={`text-sm font-medium tracking-wide transition-all duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:h-px after:bg-[#D4AF37] after:transition-all after:duration-300 ${
               activeSection === item.id
                 ? 'text-[#D4AF37] after:w-full'
                 : 'text-[#A1A1AA] hover:text-[#FACC15] after:w-0 hover:after:w-full'

@@ -30,7 +30,7 @@ const scaleIn = {
 }
 
 const GoldBar = () => (
-  <div className="w-1 h-8 rounded-full flex-shrink-0"
+  <div className="w-1 h-8 rounded-full shrink-0"
     style={{ background: 'linear-gradient(180deg,#D4AF37,#FACC15)' }} />
 )
 
@@ -179,7 +179,7 @@ export default function Resume() {
                       <motion.div key={skill} custom={i} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.1 }}
                         className="flex items-center gap-2 group"
                       >
-                        <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: 'linear-gradient(135deg,#D4AF37,#FACC15)' }} />
+                        <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: 'linear-gradient(135deg,#D4AF37,#FACC15)' }} />
                         <span className="text-[#A1A1AA] text-xs group-hover:text-[#F5F5F5] transition-colors">{skill}</span>
                       </motion.div>
                     ))}
@@ -196,7 +196,7 @@ export default function Resume() {
                       <motion.div key={db} custom={i} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.1 }}
                         className="flex items-center gap-2 group"
                       >
-                        <div className="w-1.5 h-1.5 rounded-full bg-[#F5F5F5] flex-shrink-0" />
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#F5F5F5] shrink-0" />
                         <span className="text-[#A1A1AA] text-xs group-hover:text-[#F5F5F5] transition-colors">{db}</span>
                       </motion.div>
                     ))}
