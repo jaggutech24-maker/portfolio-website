@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import profileImg from '../assets/images/profile.jpg'
 
 export default function Hero() {
@@ -57,25 +58,40 @@ export default function Hero() {
       <div className="flex-1 flex flex-col md:flex-row items-stretch pt-16 relative">
         {/* Left: Photo */}
         <div className="relative md:w-2/5 flex items-end justify-center md:justify-start">
-          <div className="relative z-10 ml-0 md:ml-12 mt-12 md:mt-0">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="relative z-10 ml-0 md:ml-12 mt-12 md:mt-0"
+          >
             <div className="w-64 h-80 md:w-72 md:h-[420px] relative">
-              <div className="absolute inset-0 bg-[#E8A020] rounded-sm translate-x-4 translate-y-4"></div>
-              <img
+              <motion.div 
+                initial={{ x: 20, y: 20 }}
+                animate={{ x: 16, y: 16 }}
+                transition={{ duration: 0.5, delay: 0.8 }}
+                className="absolute inset-0 bg-[#E8A020] rounded-sm"
+              ></motion.div>
+              <motion.img
+                whileHover={{ scale: 1.02 }}
                 src={profileImg}
                 alt="Jayesh Kumar Prajapati"
-                className="relative z-10 w-full h-full object-cover rounded-sm"
+                className="relative z-10 w-full h-full object-cover rounded-sm shadow-2xl"
               />
             </div>
-          </div>
+          </motion.div>
 
-          {/* Bio text bottom left */}
-          <div className="absolute bottom-0 left-0 md:left-12 p-6 max-w-xs">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1, ease: "easeOut" }}
+            className="absolute bottom-0 left-0 md:left-12 p-6 max-w-xs"
+          >
             <p className="text-white/70 text-xs leading-relaxed">
               B.Sc. CS Graduate · Frontend Developer<br />
               Built responsive web apps at OceanOwe Foundation,<br />
               boosting engagement by 15%. React · JavaScript · SQL.
             </p>
-          </div>
+          </motion.div>
         </div>
 
         {/* Right: Title */}
@@ -99,19 +115,39 @@ export default function Hero() {
 
           {/* Stacked PORTFOLIO text */}
           <div className="relative mb-8">
-            <h1 className="text-white font-playfair font-black text-6xl md:text-8xl leading-none tracking-tight">
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="text-white font-playfair font-black text-6xl md:text-8xl leading-none tracking-tight"
+            >
               PORTFOLIO
-            </h1>
+            </motion.h1>
             <div className="mt-1">
-              <p className="font-playfair font-black text-5xl md:text-7xl leading-none tracking-tight text-transparent" style={{WebkitTextStroke: '2px rgba(232,160,32,0.5)'}}>
+              <motion.p 
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                className="font-playfair font-black text-5xl md:text-7xl leading-none tracking-tight text-transparent" style={{WebkitTextStroke: '2px rgba(232,160,32,0.5)'}}
+              >
                 DEVELOPER
-              </p>
-              <p className="font-playfair font-black text-4xl md:text-6xl leading-none tracking-tight text-transparent" style={{WebkitTextStroke: '2px rgba(232,160,32,0.35)'}}>
+              </motion.p>
+              <motion.p 
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+                className="font-playfair font-black text-4xl md:text-6xl leading-none tracking-tight text-transparent" style={{WebkitTextStroke: '2px rgba(232,160,32,0.35)'}}
+              >
                 DESIGNER
-              </p>
-              <p className="font-playfair font-black text-3xl md:text-5xl leading-none tracking-tight text-transparent" style={{WebkitTextStroke: '2px rgba(232,160,32,0.2)'}}>
+              </motion.p>
+              <motion.p 
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+                className="font-playfair font-black text-3xl md:text-5xl leading-none tracking-tight text-transparent" style={{WebkitTextStroke: '2px rgba(232,160,32,0.2)'}}
+              >
                 CODER
-              </p>
+              </motion.p>
             </div>
           </div>
 

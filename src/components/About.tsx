@@ -1,6 +1,40 @@
+import { motion } from 'framer-motion'
 import aboutProfileImg from '../assets/images/about-profile.png'
 
 export default function About() {
+  const titleCharacters = "Hello, I'm Jayesh!".split("")
+
+  const container = {
+    hidden: { opacity: 0 },
+    visible: (i = 1) => ({
+      opacity: 1,
+      transition: { staggerChildren: 0.1, delayChildren: 0.04 * i },
+    }),
+  }
+
+  const child = {
+    visible: {
+      opacity: 1,
+      x: 0,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100,
+      },
+    },
+    hidden: {
+      opacity: 0,
+      x: -20,
+      y: 10,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100,
+      },
+    },
+  }
+
   return (
     <section id="about" className="bg-[#f5f0e8] py-24 px-6 md:px-16 relative overflow-hidden">
       {/* Background Tech Overlay */}
@@ -27,10 +61,20 @@ export default function About() {
           <div className="md:w-1/2 bg-white rounded-2xl shadow-md border border-[#e8e0d0] p-8">
             <div className="flex items-center gap-3 mb-5">
               <div className="w-1 h-10 bg-[#E8A020] rounded-full"></div>
-              <h2 className="font-playfair font-black text-5xl md:text-6xl text-[#1a1a1a] leading-tight">
-                Hello,<br />
-                I'm Jayesh!
-              </h2>
+              <motion.h2 
+                style={{ overflow: "hidden", display: "flex", flexWrap: "wrap" }}
+                variants={container}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="font-playfair font-black text-5xl md:text-6xl text-[#1a1a1a] leading-tight"
+              >
+                {titleCharacters.map((char, index) => (
+                  <motion.span variants={child} key={index}>
+                    {char === " " ? "\u00A0" : char}
+                  </motion.span>
+                ))}
+              </motion.h2>
             </div>
             <p className="text-[#555] text-base leading-relaxed mb-8 font-inter">
               I'm a recent B.Sc. Computer Science graduate with a strong foundation in core computer science concepts.
@@ -57,20 +101,36 @@ export default function About() {
           <div className="md:w-1/2 relative">
             <div className="relative">
               {/* Profile image with green bg */}
-              <div className="relative bg-[#2d5a27] p-4 rounded-sm w-fit ml-auto">
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className="relative bg-[#2d5a27] p-4 rounded-sm w-fit ml-auto"
+              >
                 <img
                   src={aboutProfileImg}
                   alt="Jayesh Kumar Prajapati"
                   className="w-56 h-64 object-cover object-top rounded-sm"
                 />
                 {/* Floating badges */}
-                <div className="absolute -left-16 top-8 bg-[#E8A020] text-[#1a1a1a] px-4 py-2 rounded-full text-xs font-bold shadow-lg">
+                <motion.div 
+                  initial={{ x: -20, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.6 }}
+                  className="absolute -left-16 top-8 bg-[#E8A020] text-[#1a1a1a] px-4 py-2 rounded-full text-xs font-bold shadow-lg"
+                >
                   B.Sc. CS Graduate
-                </div>
-                <div className="absolute -right-6 top-1/2 bg-[#E8A020] text-[#1a1a1a] px-4 py-2 rounded-full text-xs font-bold shadow-lg">
+                </motion.div>
+                <motion.div 
+                   initial={{ x: 20, opacity: 0 }}
+                   whileInView={{ x: 0, opacity: 1 }}
+                   transition={{ delay: 0.8 }}
+                   className="absolute -right-6 top-1/2 bg-[#E8A020] text-[#1a1a1a] px-4 py-2 rounded-full text-xs font-bold shadow-lg"
+                >
                   Frontend Dev
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
 
               {/* Contact card */}
               <div className="bg-[#1a1a1a] text-white p-6 mt-4 rounded-sm">
@@ -111,11 +171,18 @@ export default function About() {
               { title: 'Time Management & Critical Thinking', desc: 'Exhibit time management and critical thinking abilities', icon: '⏱️' },
               { title: 'Effective Communication', desc: 'Strong communication skills with a focus on professionalism', icon: '💬' },
             ].map((s, i) => (
-              <div key={i} className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:bg-white/20 transition-all duration-300">
+              <motion.div 
+                key={i} 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:bg-white/20 transition-all duration-300"
+              >
                 <span className="text-2xl mb-3 block">{s.icon}</span>
                 <h4 className="font-semibold text-white text-sm mb-2">{s.title}</h4>
                 <p className="text-white/70 text-xs leading-relaxed">{s.desc}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

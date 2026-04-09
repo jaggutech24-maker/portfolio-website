@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
@@ -55,7 +56,12 @@ export default function Contact() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
 
           {/* Left */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
             <div className="flex items-center gap-2 mb-4">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                 <path d="M10 0L12.5 7.5H20L14 12L16.5 20L10 15.5L3.5 20L6 12L0 7.5H7.5L10 0Z" fill="#E8A020" />
@@ -71,49 +77,44 @@ export default function Contact() {
 
             {/* Contact links */}
             <div className="flex flex-col gap-4">
-              <a href="mailto:jaggutech24@gmail.com" className="flex items-center gap-4 group">
-                <div className="w-12 h-12 bg-[#2d5a27] rounded-full flex items-center justify-center group-hover:bg-[#E8A020] transition-colors">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                    <polyline points="22,6 12,13 2,6" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-xs text-[#888] font-inter">Email</p>
-                  <p className="text-[#1a1a1a] font-medium">jaggutech24@gmail.com</p>
-                </div>
-              </a>
-
-              <a href="tel:+917822890807" className="flex items-center gap-4 group">
-                <div className="w-12 h-12 bg-[#2d5a27] rounded-full flex items-center justify-center group-hover:bg-[#E8A020] transition-colors">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l1.46-1.46a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-xs text-[#888] font-inter">Phone</p>
-                  <p className="text-[#1a1a1a] font-medium">+91 7822890807</p>
-                </div>
-              </a>
-
-              <a href="https://lnk.ink/jayeshprajapati" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group">
-                <div className="w-12 h-12 bg-[#2d5a27] rounded-full flex items-center justify-center group-hover:bg-[#E8A020] transition-colors">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                    <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" />
-                    <rect x="2" y="9" width="4" height="12" />
-                    <circle cx="4" cy="4" r="2" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-xs text-[#888] font-inter">LinkedIn</p>
-                  <p className="text-[#1a1a1a] font-medium">lnk.ink/jayeshprajapati</p>
-                </div>
-              </a>
+              {[
+                { type: 'Email', value: 'jaggutech24@gmail.com', href: 'mailto:jaggutech24@gmail.com', icon: <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /> },
+                { type: 'Phone', value: '+91 7822890807', href: 'tel:+917822890807', icon: <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l1.46-1.46a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z" /> },
+                { type: 'LinkedIn', value: 'lnk.ink/jayeshprajapati', href: 'https://lnk.ink/jayeshprajapati', icon: <><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></> }
+              ].map((link, i) => (
+                <motion.a 
+                  key={i}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 + (i * 0.1) }}
+                  viewport={{ once: true }}
+                  href={link.href} 
+                  target={link.type === 'LinkedIn' ? "_blank" : undefined}
+                  rel={link.type === 'LinkedIn' ? "noopener noreferrer" : undefined}
+                  className="flex items-center gap-4 group"
+                >
+                  <div className="w-12 h-12 bg-[#2d5a27] rounded-full flex items-center justify-center group-hover:bg-[#E8A020] transition-colors">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                      {link.icon}
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-xs text-[#888] font-inter">{link.type}</p>
+                    <p className="text-[#1a1a1a] font-medium">{link.value}</p>
+                  </div>
+                </motion.a>
+              ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Right: Form */}
-          <div className="bg-[#2d5a27] p-8 rounded-sm">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="bg-[#2d5a27] p-8 rounded-sm"
+          >
             <h3 className="font-playfair font-bold text-2xl text-white mb-6">Send a message</h3>
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               <div>
@@ -180,7 +181,7 @@ export default function Contact() {
                 </p>
               )}
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

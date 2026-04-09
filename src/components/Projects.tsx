@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion'
+
 export default function Projects() {
   const projects = [
     {
@@ -44,9 +46,15 @@ export default function Projects() {
       </div>
 
       {/* Background text */}
-      <div className="absolute left-0 bottom-8 pointer-events-none select-none opacity-10">
+      <motion.div 
+        initial={{ x: -100, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 0.1 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="absolute left-0 bottom-8 pointer-events-none select-none"
+      >
         <span className="font-playfair font-black text-[200px] text-white leading-none">WORK</span>
-      </div>
+      </motion.div>
 
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="flex flex-col md:flex-row md:items-center justify-between mb-16">
@@ -60,9 +68,13 @@ export default function Projects() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {projects.map((proj, i) => (
-            <div
+            <motion.div
               key={i}
-              className={`${proj.color} ${proj.textColor} p-8 rounded-sm relative overflow-hidden group hover:scale-[1.02] transition-transform duration-300`}
+              initial={{ opacity: 0, scale: 0.9, y: 30 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: i * 0.15 }}
+              viewport={{ once: true }}
+              className={`${proj.color} ${proj.textColor} p-8 rounded-sm relative overflow-hidden group hover:scale-[1.02] transition-transform duration-300 shadow-xl`}
             >
               {/* Year */}
               <div className="flex items-center justify-between mb-6">
@@ -98,7 +110,7 @@ export default function Projects() {
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
