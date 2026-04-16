@@ -197,21 +197,6 @@ export default function Hero() {
               <span className="text-[#D4AF37]">📍</span> Mira Road, Maharashtra
             </span>
           </motion.div>
-
-          {/* Download CV */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1 }}
-          >
-            <a href="#" download="Jayesh_Resume.pdf" className="group flex items-center gap-2 text-[#0B0B0B] font-semibold text-sm px-7 py-3.5 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_24px_rgba(212,175,55,0.5)] w-fit"
-              style={{ background: 'linear-gradient(135deg,#D4AF37,#FACC15)' }}>
-              <span>Download CV</span>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="group-hover:translate-y-1 transition-transform">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
-              </svg>
-            </a>
-          </motion.div>
         </div>
       </div>
 

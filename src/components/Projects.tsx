@@ -157,7 +157,7 @@ export default function Projects() {
 
         {/* Active Project / Currently Working On */}
         <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }}
-          className="mb-20 bg-gradient-to-r from-[#111111] to-[#0B0B0B] border border-[#D4AF37]/20 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden"
+          className="mb-20 bg-linear-to-r from-[#111111] to-[#0B0B0B] border border-[#D4AF37]/20 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden"
         >
           <div className="absolute top-0 right-0 w-32 h-32 bg-[#D4AF37]/5 blur-3xl rounded-full pointer-events-none" />
           <div>
@@ -170,7 +170,7 @@ export default function Projects() {
             </div>
             <p className="text-[#A1A1AA] text-sm font-inter">Exploring Advanced Frontend Frameworks, 3D Web Animations, and scaling apps with modern databases.</p>
           </div>
-          <div className="flex-shrink-0">
+          <div className="shrink-0">
              <span className="bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-[#D4AF37] px-5 py-2.5 rounded-full text-sm font-medium">Continuous Learning</span>
           </div>
         </motion.div>
