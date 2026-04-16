@@ -196,6 +196,43 @@ export default function About() {
           </div>
         </motion.div>
 
+        {/* What I Do (Services) */}
+        <motion.div
+           variants={fadeUp}
+           initial="hidden"
+           whileInView="visible"
+           viewport={{ once: false, amount: 0.15 }}
+           className="mb-16"
+        >
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-1 h-8 rounded-full" style={{ background: 'linear-gradient(180deg,#D4AF37,#FACC15)' }} />
+            <h3 className="font-playfair font-black text-3xl text-[#F5F5F5]">What I Do</h3>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { title: 'Frontend Development', desc: 'Building responsive, pixel-perfect, and dynamic user interfaces using React, JavaScript, HTML, and modern CSS frameworks.', icon: '💻' },
+              { title: 'Responsive UI/UX Eng.', desc: 'Ensuring seamless user experiences across all devices with a strong focus on accessibility, animations, and aesthetics.', icon: '📱' },
+              { title: 'Performance Optimization', desc: 'Writing clean, scalable code and optimizing web applications for maximum speed and smooth interactions.', icon: '⚡' },
+            ].map((service, i) => (
+              <motion.div
+                key={i}
+                custom={i}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: false, amount: 0.2 }}
+                className="bg-[#111111] border border-[#D4AF37]/15 rounded-2xl p-8 hover:border-[#D4AF37]/40 hover:shadow-[0_0_25px_rgba(212,175,55,0.1)] transition-all duration-300 group"
+              >
+                <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-[#0B0B0B] border border-[#D4AF37]/20 mb-5 group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-xl">{service.icon}</span>
+                </div>
+                <h4 className="font-playfair font-bold text-xl text-[#F5F5F5] mb-3 group-hover:text-[#FACC15] transition-colors">{service.title}</h4>
+                <p className="text-[#A1A1AA] text-sm leading-relaxed font-inter">{service.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
         {/* Languages & Hobbies */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Languages */}

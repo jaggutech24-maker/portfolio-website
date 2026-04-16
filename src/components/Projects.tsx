@@ -15,18 +15,24 @@ export default function Projects() {
       title: 'Know Your Expense Tracker',
       tech: ['JavaScript', 'HTML', 'CSS'],
       desc: 'Designed and developed a mobile-responsive expense tracking application to help users manage personal finances. The project involved gathering functional requirements, creating a user-friendly interface, and implementing business logic for real-time calculations and data management.',
+      github: '#',
+      liveDemo: '#'
     },
     {
       year: '2024',
       title: 'Art Gallery Management System',
       tech: ['HTML', 'CSS', 'PHP', 'MySQL'],
       desc: 'Built a full-stack art gallery management system with features for gallery owners to manage artworks, exhibitions, and visitor records. Implemented secure database operations and a clean admin dashboard.',
+      github: '#',
+      liveDemo: '#'
     },
     {
       year: '2024',
       title: 'Sorting Visualizer',
       tech: ['React.js', 'Tailwind CSS'],
       desc: 'Interactive sorting algorithm visualizer built with React.js and Tailwind CSS. Supports multiple algorithms including Bubble Sort, Selection Sort, Merge Sort, and Quick Sort with real-time visual animation and speed control.',
+      github: '#',
+      liveDemo: '#'
     },
   ]
 
@@ -125,17 +131,49 @@ export default function Projects() {
                 {proj.desc}
               </p>
 
-              {/* Arrow */}
-              <div className="mt-8 flex items-center gap-2 text-sm font-medium text-[#D4AF37]/50 group-hover:text-[#D4AF37] transition-all duration-300">
-                <span>View project</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-                  className="group-hover:translate-x-1 transition-transform duration-300">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
+              {/* Links */}
+              <div className="mt-8 flex items-center gap-4 text-sm font-medium">
+                {proj.liveDemo && (
+                  <a href={proj.liveDemo} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-[#D4AF37]/50 hover:text-[#D4AF37] transition-all duration-300 group/link">
+                    <span>Live Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+                      className="group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 transition-transform duration-300">
+                      <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                    </svg>
+                  </a>
+                )}
+                {proj.github && (
+                  <a href={proj.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-[#D4AF37]/50 hover:text-[#D4AF37] transition-all duration-300 group/link">
+                    <span>GitHub</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="group-hover/link:scale-110 transition-transform duration-300">
+                      <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.45-1.15-1.11-1.46-1.11-1.46-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"/>
+                    </svg>
+                  </a>
+                )}
               </div>
             </motion.div>
           ))}
         </div>
+
+        {/* Active Project / Currently Working On */}
+        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }}
+          className="mb-20 bg-gradient-to-r from-[#111111] to-[#0B0B0B] border border-[#D4AF37]/20 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden"
+        >
+          <div className="absolute top-0 right-0 w-32 h-32 bg-[#D4AF37]/5 blur-3xl rounded-full pointer-events-none" />
+          <div>
+            <div className="flex items-center gap-3 mb-3">
+              <span className="relative flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D4AF37] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-[#D4AF37]"></span>
+              </span>
+              <h3 className="text-[#F5F5F5] font-playfair font-bold text-2xl">Currently Working On</h3>
+            </div>
+            <p className="text-[#A1A1AA] text-sm font-inter">Exploring Advanced Frontend Frameworks, 3D Web Animations, and scaling apps with modern databases.</p>
+          </div>
+          <div className="flex-shrink-0">
+             <span className="bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-[#D4AF37] px-5 py-2.5 rounded-full text-sm font-medium">Continuous Learning</span>
+          </div>
+        </motion.div>
 
         {/* Tech Stack */}
         <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }}>
