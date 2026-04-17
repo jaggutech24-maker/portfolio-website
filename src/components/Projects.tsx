@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { useRef } from 'react'
 import moodbookImg from '../assets/images/moodbook.png'
 
 const fadeUp = {
@@ -20,6 +21,10 @@ interface Project {
 }
 
 export default function Projects() {
+  const containerRef = useRef<HTMLElement>(null)
+  const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start end", "end start"] })
+  const yBg = useTransform(scrollYProgress, [0, 1], [150, -150])
+
   const projects: Project[] = [
     {
       year: '2024',
@@ -57,7 +62,7 @@ export default function Projects() {
   ]
 
   return (
-    <section id="projects" className="bg-[#0B0B0B] py-28 px-6 md:px-16 relative overflow-hidden">
+    <section id="projects" ref={containerRef} className="bg-[#0B0B0B] py-28 px-6 md:px-16 relative overflow-hidden">
 
       {/* Grid background */}
       <div className="absolute inset-0 pointer-events-none"
@@ -69,10 +74,10 @@ export default function Projects() {
       />
 
       {/* Ghost WORK text */}
-      <div className="absolute left-0 bottom-8 pointer-events-none select-none">
-        <span className="font-playfair font-black text-[180px] leading-none text-transparent"
+      <motion.div style={{ y: yBg }} className="absolute left-[-2%] bottom-[15%] pointer-events-none select-none z-0">
+        <span className="font-playfair font-black text-[180px] md:text-[240px] leading-none text-transparent blur-[2px]"
           style={{ WebkitTextStroke: '2px rgba(212,175,55,0.04)' }}>WORK</span>
-      </div>
+      </motion.div>
 
       <div className="max-w-6xl mx-auto relative z-10">
 
@@ -108,10 +113,11 @@ export default function Projects() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: false, amount: 0.2 }}
-              whileHover={{ y: -6 }}
-              transition={{ duration: 0.3 }}
+              whileHover={{ y: -8, rotateX: 2, rotateY: -2, scale: 1.01 }}
+              style={{ transformPerspective: 1200 }}
+              transition={{ duration: 0.4 }}
               className="bg-[#111111] border border-[#D4AF37]/15 rounded-2xl p-8 relative overflow-hidden group cursor-default
-                         hover:border-[#D4AF37]/50 hover:shadow-[0_0_40px_rgba(212,175,55,0.12)] transition-all duration-400"
+                         hover:border-[#D4AF37]/50 hover:shadow-[0_20px_40px_rgba(212,175,55,0.12)] transition-colors duration-400 z-10"
             >
               {/* Gold corner accent on hover */}
               <div className="absolute top-0 right-0 w-16 h-16 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">

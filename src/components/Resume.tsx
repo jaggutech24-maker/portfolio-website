@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { useRef } from 'react'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -35,8 +36,13 @@ const GoldBar = () => (
 )
 
 export default function Resume() {
+  const containerRef = useRef<HTMLElement>(null)
+  const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start end", "end start"] })
+  const yBg = useTransform(scrollYProgress, [0, 1], [-100, 150])
+  const yBgFast = useTransform(scrollYProgress, [0, 1], [-250, 250])
+
   return (
-    <section id="resume" className="bg-[#111111] py-28 px-6 md:px-16 relative overflow-hidden">
+    <section id="resume" ref={containerRef} className="bg-[#111111] py-28 px-6 md:px-16 relative overflow-hidden">
 
       {/* Grid background */}
       <div className="absolute inset-0 pointer-events-none"
@@ -47,15 +53,19 @@ export default function Resume() {
         }}
       />
 
-      {/* Ghost RESUME text */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none select-none">
+      {/* Ghost RESUME text with 3D Parallax Scrolling */}
+      <motion.div style={{ y: yBgFast }} className="absolute right-0 top-[25%] pointer-events-none select-none z-0">
         <div className="flex flex-col items-end">
-          <span className="font-playfair font-black text-8xl md:text-[140px] leading-none text-transparent"
+          <span className="font-playfair font-black text-8xl md:text-[140px] leading-none text-transparent blur-[1px]"
             style={{ WebkitTextStroke: '2px rgba(212,175,55,0.06)' }}>RESUME</span>
-          <span className="font-playfair font-black text-7xl md:text-[110px] leading-none text-transparent"
+          <span className="font-playfair font-black text-7xl md:text-[110px] leading-none text-transparent blur-[2px]"
             style={{ WebkitTextStroke: '2px rgba(212,175,55,0.04)' }}>RESUME</span>
         </div>
-      </div>
+      </motion.div>
+      <motion.div style={{ y: yBg }} className="absolute left-[-5%] bottom-[10%] pointer-events-none select-none opacity-50 z-0">
+        <span className="font-playfair font-black text-7xl md:text-[140px] leading-none text-transparent blur-[1px]"
+          style={{ WebkitTextStroke: '2px rgba(212,175,55,0.03)' }}>EXPERIENCE</span>
+      </motion.div>
 
       <div className="max-w-6xl mx-auto relative z-10">
 
