@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import moodbookImg from '../assets/images/moodbook.png'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -27,7 +28,7 @@ export default function Projects() {
       desc: 'A pixel-art based interactive experience to pick a secret mood and draw it out on an 8-bit canvas — solo or with friends. Features a custom canvas engine, procedural chiptune music, a dynamic timer, and a retro diary-inspired UI. Designed to feel cozy, playful, and nostalgic.',
       github: '#',
       liveDemo: 'https://moodbook-pixel-app.vercel.app/',
-      image: '/images/moodbook.png'
+      image: moodbookImg
     },
     {
       year: '2024',
