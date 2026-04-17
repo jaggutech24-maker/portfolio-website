@@ -80,7 +80,7 @@ export default function LoadingScreen({ onDone, onFadeStart }: LoadingScreenProp
             {/* Minimal Progress Line */}
             <div className="w-56 md:w-72 h-px bg-[#222222] mt-6 overflow-hidden">
               <motion.div 
-                className="h-full bg-gradient-to-r from-[#D4AF37] to-[#FACC15]"
+                className="h-full bg-linear-to-r from-[#D4AF37] to-[#FACC15]"
                 initial={{ width: 0 }}
                 animate={{ width: `${progress}%` }}
                 transition={{ ease: "linear", duration: 0.1 }}
