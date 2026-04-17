@@ -1,14 +1,5 @@
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
+import { motion } from 'framer-motion'
 import moodbookImg from '../assets/images/moodbook.png'
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (i = 0) => ({
-    opacity: 1, y: 0,
-    transition: { duration: 0.6, delay: i * 0.13, ease: [0.0, 0.0, 0.2, 1] as [number, number, number, number] },
-  }),
-}
 
 interface Project {
   year: string;
@@ -21,10 +12,6 @@ interface Project {
 }
 
 export default function Projects() {
-  const containerRef = useRef<HTMLElement>(null)
-  const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start end", "end start"] })
-  const yBg = useTransform(scrollYProgress, [0, 1], [150, -150])
-
   const projects: Project[] = [
     {
       year: '2024',
@@ -62,169 +49,56 @@ export default function Projects() {
   ]
 
   return (
-    <section id="projects" ref={containerRef} className="bg-[#0B0B0B] py-28 px-6 md:px-16 relative overflow-hidden">
+    <section id="projects" className="relative scroll-mt-24">
+      <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-[#0B0B0B]/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+        <h2 className="text-sm font-bold uppercase tracking-widest text-[#F5F5F5]">Projects</h2>
+      </div>
 
-      {/* Grid background */}
-      <div className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: `linear-gradient(rgba(212,175,55,0.025) 1px, transparent 1px),
-                            linear-gradient(90deg, rgba(212,175,55,0.025) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px'
-        }}
-      />
-
-      {/* Ghost WORK text */}
-      <motion.div style={{ y: yBg }} className="absolute left-[-2%] bottom-[15%] pointer-events-none select-none z-0">
-        <span className="font-playfair font-black text-[180px] md:text-[240px] leading-none text-transparent blur-[2px]"
-          style={{ WebkitTextStroke: '2px rgba(212,175,55,0.04)' }}>WORK</span>
-      </motion.div>
-
-      <div className="max-w-6xl mx-auto relative z-10">
-
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
-          <div>
-            <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.3 }}
-              className="flex items-center gap-3 mb-4"
-            >
-              <div className="w-10 h-px bg-[#D4AF37]" />
-              <span className="text-[#D4AF37] text-xs uppercase tracking-[0.3em] font-inter">Portfolio</span>
-            </motion.div>
-            <motion.h2 variants={fadeUp} custom={1} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.3 }}
-              className="font-playfair font-black text-5xl md:text-6xl text-[#F5F5F5]"
-            >
-              My Work
-            </motion.h2>
-          </div>
-          <motion.p variants={fadeUp} custom={2} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.3 }}
-            className="text-[#A1A1AA] text-sm max-w-xs font-inter"
+      <div className="group/list">
+        {projects.map((proj, i) => (
+          <motion.div 
+            key={i}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: i * 0.1 }}
+            viewport={{ once: false, amount: 0.1 }}
+            className="mb-12 group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50"
           >
-            A selection of projects that showcase my skills in frontend development and problem-solving.
-          </motion.p>
-        </div>
-
-        {/* Project cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
-          {projects.map((proj, i) => (
-            <motion.div
-              key={i}
-              custom={i}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: false, amount: 0.2 }}
-              whileHover={{ y: -8, rotateX: 2, rotateY: -2, scale: 1.01 }}
-              style={{ transformPerspective: 1200 }}
-              transition={{ duration: 0.4 }}
-              className="bg-[#111111] border border-[#D4AF37]/15 rounded-2xl p-8 relative overflow-hidden group cursor-default
-                         hover:border-[#D4AF37]/50 hover:shadow-[0_20px_40px_rgba(212,175,55,0.12)] transition-colors duration-400 z-10"
-            >
-              {/* Gold corner accent on hover */}
-              <div className="absolute top-0 right-0 w-16 h-16 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                <div className="absolute top-3 right-3 w-6 h-6 border-t-2 border-r-2 border-[#D4AF37]" />
-              </div>
-              <div className="absolute bottom-0 left-0 w-16 h-16 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                <div className="absolute bottom-3 left-3 w-6 h-6 border-b-2 border-l-2 border-[#D4AF37]" />
-              </div>
-
-              {/* Optional Project Image */}
-              {proj.image && (
-                <a href={proj.liveDemo !== '#' ? proj.liveDemo : undefined} target="_blank" rel="noopener noreferrer" className="block mb-6 relative group/img overflow-hidden rounded-xl border border-[#D4AF37]/20 bg-[#0B0B0B] z-10">
-                  <div className="absolute inset-0 bg-[#D4AF37]/10 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 z-10 pointer-events-none" />
-                  <img src={proj.image} alt={proj.title} className="w-full aspect-video object-cover object-top group-hover/img:scale-105 transition-transform duration-500" />
-                </a>
-              )}
-
-              {/* Year & tech tags */}
-              <div className="flex items-start justify-between mb-6 flex-wrap gap-2 relative z-10">
-                <span className="text-[#A1A1AA] text-xs font-inter">{proj.year}</span>
-                <div className="flex flex-wrap gap-1.5">
-                  {proj.tech.map(t => (
-                    <span key={t}
-                      className="bg-[#D4AF37]/10 border border-[#D4AF37]/25 text-[#D4AF37] text-xs px-2.5 py-1 rounded-full font-medium"
-                    >
-                      {t}
-                    </span>
-                  ))}
+            <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-[#D4AF37]/5 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
+            
+            <div className="z-10 sm:col-span-2 relative mt-1">
+              {proj.image ? (
+                <img src={proj.image} alt={proj.title} className="rounded border-2 border-slate-200/10 transition group-hover:border-[#D4AF37]/30 sm:order-1 sm:translate-y-1 w-full aspect-video object-cover" />
+              ) : (
+                <div className="rounded border-2 border-slate-200/10 bg-slate-800/50 aspect-video w-full flex items-center justify-center text-xs text-[#A1A1AA] font-mono sm:translate-y-1">
+                  {proj.year}
                 </div>
-              </div>
-
-              {/* Large number */}
-              <div className="text-7xl font-playfair font-black text-transparent leading-none mb-2 select-none"
-                style={{ WebkitTextStroke: '1px rgba(212,175,55,0.12)' }}>
-                0{i + 1}
-              </div>
-
-              {/* Title */}
-              <h3 className="font-playfair font-black text-xl text-[#F5F5F5] mb-4 leading-tight group-hover:text-[#FACC15] transition-colors duration-300">
-                {proj.title}
-              </h3>
-
-              {/* Desc */}
-              <p className="text-[#A1A1AA] text-sm leading-relaxed font-inter">
-                {proj.desc}
-              </p>
-
-              {/* Links */}
-              <div className="mt-8 flex items-center gap-4 text-sm font-medium">
-                {proj.liveDemo && (
-                  <a href={proj.liveDemo} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-[#D4AF37]/50 hover:text-[#D4AF37] transition-all duration-300 group/link">
-                    <span>Live Demo</span>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-                      className="group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 transition-transform duration-300">
-                      <path d="M7 17L17 7M17 7H7M17 7v10"/>
-                    </svg>
-                  </a>
-                )}
-                {proj.github && (
-                  <a href={proj.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-[#D4AF37]/50 hover:text-[#D4AF37] transition-all duration-300 group/link">
-                    <span>GitHub</span>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="group-hover/link:scale-110 transition-transform duration-300">
-                      <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.45-1.15-1.11-1.46-1.11-1.46-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"/>
-                    </svg>
-                  </a>
-                )}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Active Project / Currently Working On */}
-        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }}
-          className="mb-20 bg-linear-to-r from-[#111111] to-[#0B0B0B] border border-[#D4AF37]/20 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden"
-        >
-          <div className="absolute top-0 right-0 w-32 h-32 bg-[#D4AF37]/5 blur-3xl rounded-full pointer-events-none" />
-          <div>
-            <div className="flex items-center gap-3 mb-3">
-              <span className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D4AF37] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-[#D4AF37]"></span>
-              </span>
-              <h3 className="text-[#F5F5F5] font-playfair font-bold text-2xl">Currently Working On</h3>
+              )}
             </div>
-            <p className="text-[#A1A1AA] text-sm font-inter">Exploring Advanced Frontend Frameworks, 3D Web Animations, and scaling apps with modern databases.</p>
-          </div>
-          <div className="shrink-0">
-             <span className="bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-[#D4AF37] px-5 py-2.5 rounded-full text-sm font-medium">Continuous Learning</span>
-          </div>
-        </motion.div>
-
-        {/* Tech Stack */}
-        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }}>
-          <h3 className="text-[#D4AF37] text-xs uppercase tracking-[0.3em] mb-6 font-inter">Tech Stack</h3>
-          <div className="flex flex-wrap gap-3">
-            {[
-              'HTML5', 'CSS3', 'JavaScript (ES6+)', 'React.js', 'Tailwind CSS',
-              'PHP', 'MySQL', 'MongoDB', 'UI PATH', 'MS-CIT', 'C++'
-            ].map((skill, i) => (
-              <motion.span key={skill} custom={i} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.1 }}
-                className="border border-[#D4AF37]/20 text-[#A1A1AA] text-sm px-4 py-2 rounded-full hover:border-[#D4AF37] hover:text-[#FACC15] hover:shadow-[0_0_12px_rgba(212,175,55,0.25)] transition-all duration-300 cursor-default"
-              >
-                {skill}
-              </motion.span>
-            ))}
-          </div>
-        </motion.div>
+            
+            <div className="z-10 sm:col-span-6">
+              <h3 className="font-medium leading-snug text-[#F5F5F5]">
+                <div>
+                  <a className="inline-flex items-baseline font-medium leading-tight text-[#F5F5F5] hover:text-[#D4AF37] focus-visible:text-[#D4AF37] group/link text-base" href={proj.liveDemo !== '#' ? proj.liveDemo : undefined} rel="noreferrer" target="_blank">
+                    <span>{proj.title}</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 focus-visible:-translate-y-1 focus-visible:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" aria-hidden="true"><path fillRule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clipRule="evenodd"></path></svg>
+                  </a>
+                </div>
+              </h3>
+              <p className="mt-2 text-sm leading-normal text-[#A1A1AA]">{proj.desc}</p>
+              
+              <ul className="mt-4 flex flex-wrap gap-2" aria-label="Technologies used">
+                {proj.tech.map(t => (
+                  <li key={t}>
+                    <div className="flex items-center rounded-full bg-[#D4AF37]/10 px-3 py-1 text-xs font-medium leading-5 text-[#D4AF37]">
+                      {t}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+        ))}
       </div>
     </section>
   )

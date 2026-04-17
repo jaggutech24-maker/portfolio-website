@@ -47,7 +47,7 @@ function App() {
 
       {/* Main content fades in simultaneously as loader fades out */}
       <div
-        className="bg-[#0B0B0B] min-h-screen font-inter"
+        className="bg-[#0B0B0B] min-h-screen font-inter text-[#A1A1AA] selection:bg-[#D4AF37]/30 selection:text-[#F5F5F5] relative"
         style={{
           opacity: loadingPhase !== 'loading' ? 1 : 0,
           transition: 'opacity 0.7s ease',
@@ -55,13 +55,20 @@ function App() {
         }}
       >
         <CursorTrail />
-        <Navbar activeSection={activeSection} />
-        <Hero />
-        <About />
-        <Resume />
-        <Projects />
-        <Contact />
-        <Footer />
+        
+        <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0 flex flex-col lg:flex-row lg:justify-between gap-4 relative z-10">
+          <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[48%] lg:flex-col lg:justify-between lg:py-24">
+            <Hero activeSection={activeSection} />
+          </header>
+
+          <main className="lg:w-[52%] lg:py-24 flex flex-col gap-24">
+            <About />
+            <Resume />
+            <Projects />
+            <Contact />
+            <Footer />
+          </main>
+        </div>
       </div>
     </>
   )
