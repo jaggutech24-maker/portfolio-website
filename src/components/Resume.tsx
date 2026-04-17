@@ -118,10 +118,10 @@ export default function Resume() {
                 <div className="absolute left-0 top-2 bottom-2 w-px bg-[#D4AF37]/25" />
                 {[
                   {
-                    year: 'Nov 2024 – May 2025',
-                    title: 'Frontend Developer',
-                    company: 'OceanOwe Foundation – Mira-Bhayandar, Maharashtra',
-                    desc: 'Led development of responsive web pages and interactive interfaces for NGO campaigns using HTML, CSS, JS, and React.js. Analyzed user engagement metrics resulting in a 15% increase in engagement.'
+                    year: 'Aug 2025 – Jan 2026',
+                    title: 'Graphic Designer',
+                    company: 'Premium Peti – Mira-Bhayandar, Maharashtra',
+                    desc: 'Designed visually compelling graphics and branding materials for digital and print platforms, including social media creatives, packaging, and promotional campaigns. Collaborated with the marketing team to maintain consistent brand identity across all channels. Improved audience engagement by creating eye-catching designs, contributing to increased customer interaction and brand visibility.'
                   },
                   {
                     year: '2020 – Present',
