@@ -20,7 +20,7 @@ export default function Hero({ activeSection }: { activeSection: string }) {
           initial={{ opacity: 0, y: 20 }} 
           animate={{ opacity: 1, y: 0 }} 
           transition={{ duration: 0.5 }}
-          className="text-4xl sm:text-5xl font-playfair font-black tracking-tight text-[#F5F5F5] sm:text-6xl"
+          className="text-4xl font-playfair font-black tracking-tight text-[#F5F5F5] sm:text-6xl"
         >
           Jayesh Prajapati
         </motion.h1>
