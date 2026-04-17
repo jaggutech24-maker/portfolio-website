@@ -118,16 +118,16 @@ export default function Resume() {
                 <div className="absolute left-0 top-2 bottom-2 w-px bg-[#D4AF37]/25" />
                 {[
                   {
+                    year: 'Jan 2024 – Jul 2025',
+                    title: 'Social Media Manager & Field Volunteer',
+                    company: 'NGO – Mumbai',
+                    desc: "Led beach cleanup drives promoting environmental awareness. Managed and created content for NGO's Instagram and Facebook pages."
+                  },
+                  {
                     year: 'Aug 2025 – Jan 2026',
                     title: 'Graphic Designer',
                     company: 'Premium Peti – Mira-Bhayandar, Maharashtra',
                     desc: 'Designed visually compelling graphics and branding materials for digital and print platforms, including social media creatives, packaging, and promotional campaigns. Collaborated with the marketing team to maintain consistent brand identity across all channels. Improved audience engagement by creating eye-catching designs, contributing to increased customer interaction and brand visibility.'
-                  },
-                  {
-                    year: '2020 – Present',
-                    title: 'Social Media Manager & Field Volunteer',
-                    company: 'NGO – Mumbai',
-                    desc: "Led beach cleanup drives promoting environmental awareness. Managed and created content for NGO's Instagram and Facebook pages."
                   },
                 ].map((exp, i) => (
                   <motion.div key={i} custom={i} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }}
