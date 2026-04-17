@@ -8,8 +8,27 @@ const fadeUp = {
   }),
 }
 
+interface Project {
+  year: string;
+  title: string;
+  tech: string[];
+  desc: string;
+  github: string;
+  liveDemo: string;
+  image?: string;
+}
+
 export default function Projects() {
-  const projects = [
+  const projects: Project[] = [
+    {
+      year: '2024',
+      title: 'MoodBook',
+      tech: ['React', 'TypeScript', 'Tailwind CSS', 'Zustand', 'Framer Motion'],
+      desc: 'A pixel-art based interactive experience to pick a secret mood and draw it out on an 8-bit canvas — solo or with friends. Features a custom canvas engine, procedural chiptune music, a dynamic timer, and a retro diary-inspired UI. Designed to feel cozy, playful, and nostalgic.',
+      github: '#',
+      liveDemo: 'https://moodbook-pixel-app.vercel.app/',
+      image: '/images/moodbook.png'
+    },
     {
       year: '2024',
       title: 'Know Your Expense Tracker',
@@ -101,8 +120,16 @@ export default function Projects() {
                 <div className="absolute bottom-3 left-3 w-6 h-6 border-b-2 border-l-2 border-[#D4AF37]" />
               </div>
 
+              {/* Optional Project Image */}
+              {proj.image && (
+                <a href={proj.liveDemo !== '#' ? proj.liveDemo : undefined} target="_blank" rel="noopener noreferrer" className="block mb-6 relative group/img overflow-hidden rounded-xl border border-[#D4AF37]/20 bg-[#0B0B0B] z-10">
+                  <div className="absolute inset-0 bg-[#D4AF37]/10 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 z-10 pointer-events-none" />
+                  <img src={proj.image} alt={proj.title} className="w-full aspect-video object-cover object-top group-hover/img:scale-105 transition-transform duration-500" />
+                </a>
+              )}
+
               {/* Year & tech tags */}
-              <div className="flex items-start justify-between mb-6 flex-wrap gap-2">
+              <div className="flex items-start justify-between mb-6 flex-wrap gap-2 relative z-10">
                 <span className="text-[#A1A1AA] text-xs font-inter">{proj.year}</span>
                 <div className="flex flex-wrap gap-1.5">
                   {proj.tech.map(t => (
