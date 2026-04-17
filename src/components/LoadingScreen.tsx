@@ -62,7 +62,7 @@ export default function LoadingScreen({ onDone, onFadeStart }: LoadingScreenProp
             y: "-10vh", // Slight upward lift as it fades, very premium
             transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] } 
           }}
-          className="fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-[#0B0B0B]"
+          className="fixed inset-0 z-99999 flex flex-col items-center justify-center bg-[#0B0B0B]"
         >
           {/* Main loader block */}
           <div className="relative flex flex-col items-center">
