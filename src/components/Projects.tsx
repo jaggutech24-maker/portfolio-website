@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion'
 import moodbookImg from '../assets/images/moodbook.png'
+import expenseTrackerImg from '../assets/images/expense-tracker.png'
+import artGalleryImg from '../assets/images/art-gallery.png'
 
 interface Project {
   year: string;
@@ -28,7 +30,8 @@ export default function Projects() {
       tech: ['JavaScript', 'HTML', 'CSS'],
       desc: 'Designed and developed a mobile-responsive expense tracking application to help users manage personal finances. The project involved gathering functional requirements, creating a user-friendly interface, and implementing business logic for real-time calculations and data management.',
       github: '#',
-      liveDemo: '#'
+      liveDemo: '#',
+      image: expenseTrackerImg
     },
     {
       year: '2024',
@@ -36,7 +39,8 @@ export default function Projects() {
       tech: ['HTML', 'CSS', 'PHP', 'MySQL'],
       desc: 'Built a full-stack art gallery management system with features for gallery owners to manage artworks, exhibitions, and visitor records. Implemented secure database operations and a clean admin dashboard.',
       github: '#',
-      liveDemo: '#'
+      liveDemo: '#',
+      image: artGalleryImg
     },
     {
       year: '2024',
