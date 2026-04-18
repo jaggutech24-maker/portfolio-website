@@ -34,6 +34,17 @@ export default function Hero({ activeSection }: { activeSection: string }) {
           Frontend Developer
         </motion.h2>
         
+        <motion.div
+          initial={{ opacity: 0, y: 20 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="mt-2 flex items-center gap-3 text-[#A1A1AA] font-inter text-sm md:text-base font-medium tracking-wide"
+        >
+          <span>Designer</span>
+          <span className="text-[#D4AF37]/50 text-xs">•</span>
+          <span>Coder</span>
+        </motion.div>
+        
         <motion.p 
           initial={{ opacity: 0, y: 20 }} 
           animate={{ opacity: 1, y: 0 }} 

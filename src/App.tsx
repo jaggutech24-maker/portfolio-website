@@ -8,6 +8,7 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import CursorTrail from './components/CursorTrail'
 import LoadingScreen from './components/LoadingScreen'
+import StarryBackground from './components/StarryBackground'
 
 function App() {
   const [activeSection, setActiveSection] = useState('home')
@@ -47,13 +48,14 @@ function App() {
 
       {/* Main content fades in simultaneously as loader fades out */}
       <div
-        className="bg-[#0B0B0B] min-h-screen font-inter text-[#A1A1AA] selection:bg-[#D4AF37]/30 selection:text-[#F5F5F5] relative"
+        className="bg-transparent min-h-screen font-inter text-[#A1A1AA] selection:bg-[#D4AF37]/30 selection:text-[#F5F5F5] relative"
         style={{
           opacity: loadingPhase !== 'loading' ? 1 : 0,
           transition: 'opacity 0.7s ease',
           pointerEvents: loadingPhase !== 'loading' ? 'auto' : 'none',
         }}
       >
+        <StarryBackground />
         <CursorTrail />
         
         <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0 flex flex-col lg:flex-row lg:justify-between gap-4 relative z-10">
