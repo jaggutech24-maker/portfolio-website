@@ -70,7 +70,7 @@ export default function Contact() {
           <span className="text-[#D4AF37] text-xs uppercase tracking-[0.3em] font-inter">Contact</span>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+        <div className="flex flex-col gap-12 lg:gap-16 items-start w-full">
 
           {/* Left */}
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }}>
@@ -81,54 +81,14 @@ export default function Contact() {
             <p className="text-[#A1A1AA] text-base leading-relaxed mb-10 font-inter">
               I'm currently open to new opportunities. Whether you have a project in mind, want to collaborate, or just want to say hi — my inbox is always open!
             </p>
-
-            {/* Contact links */}
-            <div className="flex flex-col gap-5">
-              {[
-                { type: 'Email', value: 'jaggutech24@gmail.com', href: 'mailto:jaggutech24@gmail.com',
-                  icon: <><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></> },
-                { type: 'Phone', value: '+91 7822890807', href: 'tel:+917822890807',
-                  icon: <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l1.46-1.46a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/> },
-                { type: 'LinkedIn', value: 'lnk.ink/jayeshprajapati', href: 'https://lnk.ink/jayeshprajapati',
-                  icon: <><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></> },
-                { type: 'GitHub', value: 'github.com/jaggutech24-maker', href: 'https://github.com/jaggutech24-maker',
-                  icon: <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.45-1.15-1.11-1.46-1.11-1.46-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"/> },
-              ].map((link, i) => (
-                <motion.a
-                  key={i}
-                  custom={i}
-                  variants={fadeUp}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: false, amount: 0.2 }}
-                  href={link.href}
-                  target={link.type === 'LinkedIn' ? '_blank' : undefined}
-                  rel={link.type === 'LinkedIn' ? 'noopener noreferrer' : undefined}
-                  className="flex items-center gap-4 group"
-                >
-                  <div className="w-12 h-12 rounded-full border border-[#D4AF37]/30 flex items-center justify-center
-                    group-hover:border-[#D4AF37] group-hover:shadow-[0_0_16px_rgba(212,175,55,0.35)] transition-all duration-300"
-                    style={{ background: 'linear-gradient(135deg,rgba(212,175,55,0.08),rgba(250,204,21,0.05))' }}>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" strokeWidth="2">
-                      {link.icon}
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-xs text-[#A1A1AA] font-inter">{link.type}</p>
-                    <p className="text-[#F5F5F5] font-medium text-sm group-hover:text-[#FACC15] transition-colors">{link.value}</p>
-                  </div>
-                </motion.a>
-              ))}
-            </div>
           </motion.div>
 
-          {/* Right: Form */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: false, amount: 0.2 }}
-            className="bg-[#0B0B0B] border border-[#D4AF37]/15 rounded-2xl p-8 hover:border-[#D4AF37]/30 hover:shadow-[0_0_40px_rgba(212,175,55,0.07)] transition-all duration-500"
+            className="w-full bg-[#0B0B0B] border border-[#D4AF37]/15 rounded-2xl p-8 hover:border-[#D4AF37]/30 hover:shadow-[0_0_40px_rgba(212,175,55,0.07)] transition-all duration-500 mb-16"
           >
             <h3 className="font-playfair font-bold text-2xl text-[#F5F5F5] mb-6">Send a message</h3>
             <form onSubmit={handleSubmit} className="flex flex-col gap-5">
@@ -196,6 +156,48 @@ export default function Contact() {
                 </p>
               )}
             </form>
+          </motion.div>
+
+          {/* Contact links wrapper */}
+          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} className="w-full">
+            {/* Contact links */}
+            <div className="flex flex-col gap-5">
+              {[
+                { type: 'Email', value: 'jaggutech24@gmail.com', href: 'mailto:jaggutech24@gmail.com',
+                  icon: <><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></> },
+                { type: 'Phone', value: '+91 7822890807', href: 'tel:+917822890807',
+                  icon: <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l1.46-1.46a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/> },
+                { type: 'LinkedIn', value: 'lnk.ink/jayeshprajapati', href: 'https://lnk.ink/jayeshprajapati',
+                  icon: <><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></> },
+                { type: 'GitHub', value: 'github.com/jaggutech24-maker', href: 'https://github.com/jaggutech24-maker',
+                  icon: <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.45-1.15-1.11-1.46-1.11-1.46-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"/> },
+              ].map((link, i) => (
+                <motion.a
+                  key={i}
+                  custom={i}
+                  variants={fadeUp}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: false, amount: 0.2 }}
+                  href={link.href}
+                  target={link.type === 'LinkedIn' ? '_blank' : undefined}
+                  rel={link.type === 'LinkedIn' ? 'noopener noreferrer' : undefined}
+                  className="flex items-center gap-4 group w-full"
+                >
+                  <div className="shrink-0 w-12 h-12 rounded-full border border-[#D4AF37]/30 flex items-center justify-center
+                    group-hover:border-[#D4AF37] group-hover:shadow-[0_0_16px_rgba(212,175,55,0.35)] transition-all duration-300"
+                    style={{ background: 'linear-gradient(135deg,rgba(212,175,55,0.08),rgba(250,204,21,0.05))' }}>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" strokeWidth="2">
+                      {link.icon}
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-xs text-[#A1A1AA] font-inter">{link.type}</p>
+                    <p className="text-[#F5F5F5] font-medium text-sm group-hover:text-[#FACC15] transition-colors">{link.value}</p>
+                  </div>
+                </motion.a>
+              ))}
+            </div>
           </motion.div>
         </div>
       </div>
