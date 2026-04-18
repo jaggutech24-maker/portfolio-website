@@ -39,13 +39,13 @@ export default function Navbar({ activeSection }: NavbarProps) {
         className="flex items-center gap-2.5 cursor-pointer group"
         onClick={() => scrollTo('home')}
       >
-        <div className="w-8 h-8 rounded-full flex items-center justify-center"
+        <div className="w-8 h-8 shrink-0 rounded-full flex items-center justify-center"
           style={{ background: 'linear-gradient(135deg,#D4AF37,#FACC15)', boxShadow: '0 0 14px rgba(212,175,55,0.45)' }}>
           <svg width="14" height="14" viewBox="0 0 20 20" fill="none">
             <path d="M10 0L12.5 7.5H20L14 12L16.5 20L10 15.5L3.5 20L6 12L0 7.5H7.5L10 0Z" fill="#0B0B0B"/>
           </svg>
         </div>
-        <span className="text-[#F5F5F5] font-playfair font-bold text-lg tracking-wide group-hover:text-[#D4AF37] transition-colors duration-300">
+        <span className="text-[#F5F5F5] font-playfair font-bold text-base sm:text-lg tracking-wide group-hover:text-[#D4AF37] transition-colors duration-300 whitespace-nowrap overflow-hidden text-ellipsis md:overflow-visible">
           JAYESH KUMAR PRAJAPATI
         </span>
       </div>

@@ -7,17 +7,17 @@ export default function Footer() {
   return (
     <footer className="bg-[#0B0B0B] border-t border-[#D4AF37]/10 py-12 px-6 md:px-16">
       <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-10">
+        <div className="flex flex-col lg:flex-row flex-wrap items-center justify-between gap-8 mb-10">
 
           {/* Logo */}
-          <div className="flex items-center gap-3 cursor-pointer group" onClick={() => scrollTo('home')}>
+          <div className="flex flex-wrap items-center justify-center gap-3 cursor-pointer group" onClick={() => scrollTo('home')}>
             <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 group-hover:shadow-[0_0_14px_rgba(212,175,55,0.5)] transition-all duration-300"
               style={{ background: 'linear-gradient(135deg,#D4AF37,#FACC15)' }}>
               <svg width="13" height="13" viewBox="0 0 20 20" fill="none">
                 <path d="M10 0L12.5 7.5H20L14 12L16.5 20L10 15.5L3.5 20L6 12L0 7.5H7.5L10 0Z" fill="#0B0B0B"/>
               </svg>
             </div>
-            <span className="text-[#F5F5F5] font-playfair font-bold text-lg tracking-wide group-hover:text-[#D4AF37] transition-colors duration-300">
+            <span className="text-[#F5F5F5] font-playfair font-bold text-lg tracking-wide group-hover:text-[#D4AF37] transition-colors duration-300 whitespace-nowrap">
               JAYESH KUMAR PRAJAPATI
             </span>
           </div>
