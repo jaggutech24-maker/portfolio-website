@@ -58,7 +58,7 @@ function App() {
         <StarryBackground />
         <CursorTrail />
         
-        <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0 flex flex-col lg:flex-row lg:justify-between gap-4 relative z-10">
+        <div className="mx-auto min-h-screen max-w-7xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0 flex flex-col lg:flex-row lg:justify-between gap-4 relative z-10">
           <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[48%] lg:flex-col lg:justify-between lg:py-24">
             <Hero activeSection={activeSection} />
           </header>
