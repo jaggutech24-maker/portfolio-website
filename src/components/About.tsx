@@ -21,7 +21,7 @@ export default function About() {
           <img 
             src={profileImg} 
             alt="Jayesh Kumar Prajapati" 
-            className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-105"
+            className="w-full h-full object-cover object-[center_15%] grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-105"
           />
         </div>
 
