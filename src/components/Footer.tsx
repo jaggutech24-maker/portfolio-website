@@ -18,7 +18,7 @@ export default function Footer() {
               </svg>
             </div>
             <span className="text-[#F5F5F5] font-playfair font-bold text-lg tracking-wide group-hover:text-[#D4AF37] transition-colors duration-300">
-              Jayesh Kumar Prajapati
+              JAYESH KUMAR PRAJAPATI
             </span>
           </div>
 
@@ -80,7 +80,7 @@ export default function Footer() {
         {/* Divider + Copyright */}
         <div className="border-t border-[#D4AF37]/10 pt-7 text-center">
           <p className="text-[#A1A1AA]/50 text-sm font-inter tracking-wider">
-            &copy; 2025 Jayesh Kumar Prajapati, All Rights Reserved
+            &copy; 2025 JAYESH KUMAR PRAJAPATI, All Rights Reserved
           </p>
         </div>
       </div>

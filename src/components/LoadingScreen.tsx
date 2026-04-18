@@ -94,7 +94,7 @@ export default function LoadingScreen({ onDone, onFadeStart }: LoadingScreenProp
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mt-5 text-[#A1A1AA] text-[10px] sm:text-xs font-inter tracking-[0.3em] uppercase"
             >
-              Jayesh.OS · Portfolio
+              JAYESH.OS · Portfolio
             </motion.p>
 
           </div>

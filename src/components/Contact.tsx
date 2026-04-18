@@ -93,7 +93,7 @@ export default function Contact() {
             <h3 className="font-playfair font-bold text-2xl text-[#F5F5F5] mb-6">Send a message</h3>
             <form onSubmit={handleSubmit} className="flex flex-col gap-5">
               {[
-                { label: 'Your Name',  name: 'name',    type: 'text',  placeholder: 'Jayesh Prajapati' },
+                { label: 'Your Name',  name: 'name',    type: 'text',  placeholder: 'JAYESH KUMAR PRAJAPATI' },
                 { label: 'Email',      name: 'email',   type: 'email', placeholder: 'you@example.com' },
               ].map(field => (
                 <div key={field.name}>
@@ -117,7 +117,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  placeholder="Hello Jayesh, I'd love to work with you..."
+                  placeholder="Hello JAYESH KUMAR PRAJAPATI, I'd love to work with you..."
                   className="w-full bg-[#111111] border border-[#D4AF37]/15 text-[#F5F5F5] placeholder:text-[#A1A1AA]/40 px-4 py-3 rounded-xl text-sm outline-none focus:border-[#D4AF37]/60 focus:shadow-[0_0_12px_rgba(212,175,55,0.15)] transition-all duration-300 font-inter resize-none"
                 />
               </div>

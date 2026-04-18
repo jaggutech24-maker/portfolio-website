@@ -22,7 +22,7 @@ export default function Hero({ activeSection }: { activeSection: string }) {
           transition={{ duration: 0.5 }}
           className="text-4xl font-playfair font-black tracking-tight text-[#F5F5F5] sm:text-6xl"
         >
-          Jayesh Prajapati
+          JAYESH KUMAR PRAJAPATI
         </motion.h1>
         
         <motion.h2 

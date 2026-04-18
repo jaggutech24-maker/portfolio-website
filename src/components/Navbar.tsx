@@ -46,7 +46,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
           </svg>
         </div>
         <span className="text-[#F5F5F5] font-playfair font-bold text-lg tracking-wide group-hover:text-[#D4AF37] transition-colors duration-300">
-          Jayesh Kumar Prajapati
+          JAYESH KUMAR PRAJAPATI
         </span>
       </div>
 
