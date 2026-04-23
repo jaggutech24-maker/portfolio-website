@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import StarryBackground from './components/StarryBackground'
 import CursorTrail from './components/CursorTrail'
+import { motion } from 'framer-motion'
 
 export default function ResumePage() {
   useEffect(() => {
