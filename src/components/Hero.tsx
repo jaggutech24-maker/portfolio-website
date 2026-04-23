@@ -115,6 +115,37 @@ export default function Hero({ activeSection }: { activeSection: string }) {
           </a>
         </li>
       </motion.ul>
+
+      {/* Download Resume Button */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.75 }}
+        className="mt-6"
+      >
+        <a
+          href="/Jayesh_Kumar_Prajapati_Resume.pdf"
+          target="_blank"
+          rel="noreferrer"
+          className="group inline-flex items-center gap-2.5 rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10 px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-[#D4AF37] transition-all duration-300 hover:bg-[#D4AF37]/20 hover:border-[#D4AF37]/80 hover:shadow-[0_0_20px_rgba(212,175,55,0.25)]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5"
+          >
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg>
+          Download Resume
+        </a>
+      </motion.div>
     </div>
   )
 }
