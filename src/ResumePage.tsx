@@ -8,13 +8,17 @@ export default function ResumePage() {
     // Scroll to top on mount
     window.scrollTo(0, 0)
     
-    // Automatically trigger PDF download
-    const link = document.createElement('a')
-    link.href = '/Jayesh_Kumar_Prajapati_Resume.pdf'
-    link.download = 'Jayesh_Kumar_Prajapati_Resume.pdf'
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
+    // Automatically trigger PDF download with a small delay to ensure page renders first
+    const timer = setTimeout(() => {
+      const link = document.createElement('a')
+      link.href = '/Jayesh_Kumar_Prajapati_Resume.pdf'
+      link.download = 'Jayesh_Kumar_Prajapati_Resume.pdf'
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+    }, 1000)
+
+    return () => clearTimeout(timer)
   }, [])
 
   return (

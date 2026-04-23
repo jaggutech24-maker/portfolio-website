@@ -124,7 +124,7 @@ export default function Hero({ activeSection }: { activeSection: string }) {
         className="mt-6"
       >
         <a
-          href="#/resume"
+          href="https://jaggutech24-maker.github.io/portfolio-website/#/resume"
           target="_blank"
           rel="noreferrer"
           className="group inline-flex items-center gap-2.5 rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10 px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-[#D4AF37] transition-all duration-300 hover:bg-[#D4AF37]/20 hover:border-[#D4AF37]/80 hover:shadow-[0_0_20px_rgba(212,175,55,0.25)]"
