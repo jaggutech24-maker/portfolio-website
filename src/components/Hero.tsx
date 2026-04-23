@@ -1,21 +1,6 @@
-import { useState } from 'react'
 import { motion } from 'framer-motion'
-import ResumeModal from './ResumeModal'
 
 export default function Hero({ activeSection }: { activeSection: string }) {
-  const [isResumeOpen, setIsResumeOpen] = useState(false)
-
-  const handleResumeClick = () => {
-    // Open modal to view resume
-    setIsResumeOpen(true)
-    // Also trigger PDF download simultaneously
-    const link = document.createElement('a')
-    link.href = '/Jayesh_Kumar_Prajapati_Resume.pdf'
-    link.download = 'Jayesh_Kumar_Prajapati_Resume.pdf'
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
-  }
   const navItems = [
     { name: 'About', href: '#about' },
     { name: 'Experience', href: '#resume' },
@@ -138,8 +123,10 @@ export default function Hero({ activeSection }: { activeSection: string }) {
         transition={{ duration: 0.5, delay: 0.75 }}
         className="mt-6"
       >
-        <button
-          onClick={handleResumeClick}
+        <a
+          href="#/resume"
+          target="_blank"
+          rel="noreferrer"
           className="group inline-flex items-center gap-2.5 rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10 px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-[#D4AF37] transition-all duration-300 hover:bg-[#D4AF37]/20 hover:border-[#D4AF37]/80 hover:shadow-[0_0_20px_rgba(212,175,55,0.25)]"
         >
           <svg
@@ -157,11 +144,8 @@ export default function Hero({ activeSection }: { activeSection: string }) {
             <line x1="12" y1="15" x2="12" y2="3" />
           </svg>
           Download Resume
-        </button>
+        </a>
       </motion.div>
-
-      {/* Resume Modal */}
-      <ResumeModal isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
     </div>
   )
 }
