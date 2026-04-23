@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion'
 import { useEffect } from 'react'
 import StarryBackground from './components/StarryBackground'
+import CursorTrail from './components/CursorTrail'
 
 export default function ResumePage() {
   useEffect(() => {
@@ -19,6 +19,7 @@ export default function ResumePage() {
   return (
     <div className="min-h-screen bg-[#0B0B0B] text-gray-900 font-sans relative">
       <StarryBackground />
+      <CursorTrail />
       
       {/* Back to Home Button */}
       <div className="fixed top-6 left-6 z-50">
@@ -242,6 +243,14 @@ export default function ResumePage() {
                 <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wide">SORTING VISUALIZER</h3>
                 <ul className="list-disc list-inside space-y-1 text-sm text-gray-700 mt-1">
                   <li>Built a responsive Sorting Visualizer using React JS and Tailwind CSS, managed with Git for version control, ensuring cross-browser compatibility and implementing unit testing.</li>
+                </ul>
+              </div>
+
+              {/* Project 4 */}
+              <div className="mb-4">
+                <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wide">Personal Portfolio Website</h3>
+                <ul className="list-disc list-inside space-y-1 text-sm text-gray-700 mt-1">
+                  <li>Developed a personal portfolio website to showcase technical projects and skills, deployed using GitHub Pages for high availability and performance.</li>
                 </ul>
               </div>
             </section>
