@@ -1,4 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import Lenis from 'lenis'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Hero from './components/Hero'
 import About from './components/About'
 import Resume from './components/Resume'
@@ -12,8 +15,30 @@ import StarryBackground from './components/StarryBackground'
 export default function Home() {
   const [activeSection, setActiveSection] = useState('home')
   const [loadingPhase, setLoadingPhase] = useState<'loading' | 'fading' | 'done'>('loading')
+  const lenisRef = useRef<Lenis | null>(null)
 
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger)
+
+    // Initialize Lenis
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 2,
+    })
+    lenisRef.current = lenis
+
+    lenis.on('scroll', ScrollTrigger.update)
+
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000)
+    })
+
+    gsap.ticker.lagSmoothing(0)
     const handleScroll = () => {
       const sections = ['home', 'about', 'resume', 'projects', 'contact']
       const scrollPos = window.scrollY + 100
@@ -32,7 +57,11 @@ export default function Home() {
     }
 
     window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      lenis.destroy()
+      gsap.ticker.remove((time) => lenis.raf(time * 1000))
+    }
   }, [])
 
   return (

@@ -1,4 +1,6 @@
-import { motion } from 'framer-motion'
+import { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import moodbookImg from '../assets/images/moodbook.png'
 import expenseTrackerImg from '../assets/images/expense-tracker.png'
 import artGalleryImg from '../assets/images/art-gallery.png'
@@ -52,21 +54,57 @@ export default function Projects() {
     },
   ]
 
+  const sectionRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger)
+
+    const cards = gsap.utils.toArray('.project-card') as HTMLElement[]
+    
+    cards.forEach((card, i) => {
+      gsap.fromTo(card,
+        { 
+          opacity: 0, 
+          y: 100, 
+          rotationX: -15, 
+          z: -100,
+          transformPerspective: 1000
+        },
+        {
+          opacity: 1,
+          y: 0,
+          rotationX: 0,
+          z: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 85%",
+            end: "top 20%",
+            toggleActions: "play reverse play reverse",
+            scrub: 1,
+          }
+        }
+      )
+    })
+
+    return () => {
+      ScrollTrigger.getAll().forEach(t => t.kill())
+    }
+  }, [])
+
   return (
-    <section id="projects" className="relative scroll-mt-24">
+    <section id="projects" className="relative scroll-mt-24" ref={sectionRef}>
       <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-[#0B0B0B]/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
         <h2 className="text-sm font-bold uppercase tracking-widest text-[#F5F5F5]">Projects</h2>
       </div>
 
-      <div className="group/list">
+      <div className="group/list perspective-1000">
         {projects.map((proj, i) => (
-          <motion.div 
+          <div 
             key={i}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
-            viewport={{ once: false, amount: 0.1 }}
-            className="mb-12 group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:opacity-100! lg:group-hover/list:opacity-50"
+            className="project-card mb-12 group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:opacity-100 lg:group-hover/list:opacity-50"
+            style={{ transformStyle: 'preserve-3d' }}
           >
             <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-[#D4AF37]/5 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
             
@@ -101,7 +139,7 @@ export default function Projects() {
                 ))}
               </ul>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </section>

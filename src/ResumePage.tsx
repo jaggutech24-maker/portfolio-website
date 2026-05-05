@@ -11,8 +11,8 @@ export default function ResumePage() {
     // Automatically trigger PDF download with a small delay to ensure page renders first
     const timer = setTimeout(() => {
       const link = document.createElement('a')
-      link.href = '/Jayesh_Kumar_Prajapati_Resume.pdf'
-      link.download = 'Jayesh_Kumar_Prajapati_Resume.pdf'
+      link.href = '/Jayesh_Kumar_Prajapati_Resume.docx'
+      link.download = 'Jayesh_Kumar_Prajapati_Resume.docx'
       document.body.appendChild(link)
       link.click()
       document.body.removeChild(link)
@@ -29,7 +29,7 @@ export default function ResumePage() {
       {/* Back to Home Button */}
       <div className="fixed top-6 left-6 z-50">
         <a 
-          href="https://jaggutech24-maker.github.io/portfolio-website/"
+          href="#/"
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-[#D4AF37] hover:bg-[#D4AF37]/20 transition-all text-xs font-bold uppercase tracking-widest shadow-[0_0_15px_rgba(212,175,55,0.1)]"
         >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">

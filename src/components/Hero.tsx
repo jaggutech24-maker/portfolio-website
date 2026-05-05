@@ -16,14 +16,20 @@ export default function Hero({ activeSection }: { activeSection: string }) {
   return (
     <div className="flex flex-col justify-between h-full">
       <div>
-        <motion.h1 
-          initial={{ opacity: 0, y: 20 }} 
-          animate={{ opacity: 1, y: 0 }} 
-          transition={{ duration: 0.5 }}
-          className="text-4xl font-playfair font-black tracking-tight text-[#F5F5F5] sm:text-6xl"
-        >
-          JAYESH KUMAR PRAJAPATI
-        </motion.h1>
+        <h1 className="text-4xl font-playfair font-black tracking-tight text-[#F5F5F5] sm:text-6xl flex flex-wrap gap-x-3 lg:gap-x-4">
+          {"JAYESH KUMAR PRAJAPATI".split(" ").map((word, i) => (
+            <motion.span
+              key={i}
+              initial={{ opacity: 0, y: 40, rotateX: -20 }}
+              animate={{ opacity: 1, y: 0, rotateX: 0 }}
+              transition={{ duration: 0.7, delay: i * 0.15, ease: "easeOut" }}
+              style={{ transformStyle: 'preserve-3d' }}
+              className={i === 2 ? "text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-[#FFF3B0]" : ""}
+            >
+              {word}
+            </motion.span>
+          ))}
+        </h1>
         
         <motion.h2 
           initial={{ opacity: 0, y: 20 }} 
@@ -124,7 +130,7 @@ export default function Hero({ activeSection }: { activeSection: string }) {
         className="mt-6"
       >
         <a
-          href="https://jaggutech24-maker.github.io/portfolio-website/#/resume"
+          href="#/resume"
           target="_blank"
           rel="noreferrer"
           className="group inline-flex items-center gap-2.5 rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10 px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-[#D4AF37] transition-all duration-300 hover:bg-[#D4AF37]/20 hover:border-[#D4AF37]/80 hover:shadow-[0_0_20px_rgba(212,175,55,0.25)]"
