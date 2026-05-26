@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import moodbookImg from '../assets/images/moodbook.png'
 import expenseTrackerImg from '../assets/images/expense-tracker.png'
 import artGalleryImg from '../assets/images/art-gallery.png'
+import storerateImg from '../assets/images/storerate.png'
 
 interface Project {
   year: string;
@@ -17,6 +18,15 @@ interface Project {
 
 export default function Projects() {
   const projects: Project[] = [
+    {
+      year: '2024',
+      title: 'StoreRate (Store Rating System)',
+      tech: ['NestJS', 'React', 'PostgreSQL', 'TypeORM', 'Tailwind CSS', 'TypeScript'],
+      desc: 'A comprehensive full-stack store review and rating platform featuring role-based dashboards for Admins, Store Owners, and Normal Users. Integrated real-time statistics calculation, secure PostgreSQL database storage on Render, dynamic data caching, automated CI/CD deployments, and responsive UI components.',
+      github: 'https://github.com/jaggutech24-maker/store-rating-management-system',
+      liveDemo: 'https://jaggutech24-maker.github.io/store-rating-management-system/',
+      image: storerateImg
+    },
     {
       year: '2024',
       title: 'MoodBook',
